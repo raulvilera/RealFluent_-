@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Learning Hub - Plataforma de Ensino de Inglês</title>
+    <title>RealFluent - Plataforma de Ensino de Inglês</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -307,11 +307,11 @@
         }
 
         .price {
-            display: none;
             font-weight: 700;
             color: var(--accent);
             font-size: 1.4rem;
             margin: 15px 0;
+            text-align: center;
         }
 
         .course-details {
@@ -319,6 +319,19 @@
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid #eee;
+        }
+
+        .access-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            background: var(--primary);
+            color: white;
+        }
+
+        .access-btn:hover {
+            background: var(--secondary);
         }
 
         /* Features Section */
@@ -781,6 +794,38 @@
         .tab-pane.active {
             display: block;
         }
+
+        /* Content cards */
+        .content-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .module-list {
+            list-style-type: none;
+        }
+
+        .module-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .module-list li:last-child {
+            border-bottom: none;
+        }
+
+        .module-list li i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -811,7 +856,7 @@
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                <span data-translate="site-name">English Hub</span>
+                <span data-translate="site-name">RealFluent</span>
             </div>
 
             <button class="mobile-menu-btn">
@@ -892,16 +937,8 @@
                             <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">120 alunos</span></span>
                         </div>
                         <div class="price">R$ 199,90</div>
-                        <div class="course-details">
-                            <p data-translate="course-includes">Este curso inclui:</p>
-                            <ul>
-                                <li data-translate="course-basic-item1">Gramática básica</li>
-                                <li data-translate="course-basic-item2">Vocabulário essencial</li>
-                                <li data-translate="course-basic-item3">Expressões do dia a dia</li>
-                                <li data-translate="course-basic-item4">Exercícios práticos</li>
-                            </ul>
-                        </div>
                         <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="basic">Saiba Mais</a>
+                        <a href="#" class="btn access-btn" data-translate="course-access" data-course="basic">Acessar</a>
                     </div>
                 </div>
 
@@ -917,16 +954,8 @@
                             <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">85 alunos</span></span>
                         </div>
                         <div class="price">R$ 299,90</div>
-                        <div class="course-details">
-                            <p data-translate="course-includes">Este curso inclui:</p>
-                            <ul>
-                                <li data-translate="course-intermediate-item1">Gramática intermediária</li>
-                                <li data-translate="course-intermediate-item2">Conversação fluente</li>
-                                <li data-translate="course-intermediate-item3">Leitura e interpretação de textos</li>
-                                <li data-translate="course-intermediate-item4">Exercícios avançados</li>
-                            </ul>
-                        </div>
                         <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="intermediate">Saiba Mais</a>
+                        <a href="#" class="btn access-btn" data-translate="course-access" data-course="intermediate">Acessar</a>
                     </div>
                 </div>
 
@@ -942,16 +971,8 @@
                             <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">64 alunos</span></span>
                         </div>
                         <div class="price">R$ 399,90</div>
-                        <div class="course-details">
-                            <p data-translate="course-includes">Este curso inclui:</p>
-                            <ul>
-                                <li data-translate="course-advanced-item1">Gramática avançada</li>
-                                <li data-translate="course-advanced-item2">Conversação fluente</li>
-                                <li data-translate="course-advanced-item3">Preparação para exames internacionais</li>
-                                <li data-translate="course-advanced-item4">Prática de negócios em inglês</li>
-                            </ul>
-                        </div>
                         <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="advanced">Saiba Mais</a>
+                        <a href="#" class="btn access-btn" data-translate="course-access" data-course="advanced">Acessar</a>
                     </div>
                 </div>
             </div>
@@ -967,74 +988,85 @@
                 <div class="tab-content">
                     <!-- Basic English Content -->
                     <div class="tab-pane active" id="basic">
+                        <div class="content-card">
+                            <h4>Conteúdo do Curso de Inglês Básico</h4>
+                            <ul class="module-list">
+                                <li><i class="fas fa-check-circle"></i> Lição 1: Pronomes e Verbo To Be</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 2: Formação de Perguntas</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 3: Futuro com "Going To"</li>
+                                <li><i class="fas fa-check-circle"></i> Vocabulário Essencial</li>
+                                <li><i class="fas fa-check-circle"></i> Exercícios Práticos</li>
+                            </ul>
+                        </div>
+
                         <div class="lesson-content">
-                            <h3 data-translate="lesson-1">Lição 1: Pronomes e Verbo To Be</h3>
-                            <p data-translate="lesson-1-desc">Aprenda os pronomes pessoais e como usar o verbo to be em inglês.</p>
+                            <h3>Lição 1: Pronomes e Verbo To Be</h3>
+                            <p>Aprenda os pronomes pessoais e como usar o verbo to be em inglês.</p>
                             
-                            <h4 data-translate="pronouns-title">Pronomes</h4>
+                            <h4>Pronomes</h4>
                             <table>
                                 <tr>
-                                    <th data-translate="english">Inglês</th>
-                                    <th data-translate="portuguese">Português</th>
+                                    <th>Inglês</th>
+                                    <th>Português</th>
                                 </tr>
                                 <tr>
                                     <td>I</td>
-                                    <td data-translate="pronoun-i">Eu</td>
+                                    <td>Eu</td>
                                 </tr>
                                 <tr>
                                     <td>You</td>
-                                    <td data-translate="pronoun-you">Você</td>
+                                    <td>Você</td>
                                 </tr>
                                 <tr>
                                     <td>We</td>
-                                    <td data-translate="pronoun-we">Nós</td>
+                                    <td>Nós</td>
                                 </tr>
                                 <tr>
                                     <td>He</td>
-                                    <td data-translate="pronoun-he">Ele</td>
+                                    <td>Ele</td>
                                 </tr>
                                 <tr>
                                     <td>She</td>
-                                    <td data-translate="pronoun-she">Ela</td>
+                                    <td>Ela</td>
                                 </tr>
                                 <tr>
                                     <td>It</td>
-                                    <td data-translate="pronoun-it">Esta/Aquela/Etc.</td>
+                                    <td>Esta/Aquela/Etc.</td>
                                 </tr>
                                 <tr>
                                     <td>They</td>
-                                    <td data-translate="pronoun-they">Eles/Elas</td>
+                                    <td>Eles/Elas</td>
                                 </tr>
                             </table>
 
-                            <h4 data-translate="verb-to-be">Verbo To Be</h4>
-                            <p data-translate="verb-to-be-desc">O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".</p>
+                            <h4>Verbo To Be</h4>
+                            <p>O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".</p>
                             
                             <table>
                                 <tr>
-                                    <th data-translate="person">Pessoa</th>
-                                    <th data-translate="conjugation">Conjugação</th>
+                                    <th>Pessoa</th>
+                                    <th>Conjugação</th>
                                 </tr>
                                 <tr>
-                                    <td data-translate="1st-person">1ª pessoa (I)</td>
+                                    <td>1ª pessoa (I)</td>
                                     <td>am</td>
                                 </tr>
                                 <tr>
-                                    <td data-translate="2nd-person">2ª pessoa (You)</td>
+                                    <td>2ª pessoa (You)</td>
                                     <td>are</td>
                                 </tr>
                                 <tr>
-                                    <td data-translate="3rd-person">3ª pessoa (He/She/It)</td>
+                                    <td>3ª pessoa (He/She/It)</td>
                                     <td>is</td>
                                 </tr>
                                 <tr>
-                                    <td data-translate="plural-you">Plural (You/We/They)</td>
+                                    <td>Plural (You/We/They)</td>
                                     <td>are</td>
                                 </tr>
                             </table>
 
                             <div class="exercise">
-                                <h4 data-translate="exercise-1">Exercício 1: Complete as frases com a forma correta do verbo TO BE</h4>
+                                <h4>Exercício 1: Complete as frases com a forma correta do verbo TO BE</h4>
                                 <p>1. We ______ Brazilians.</p>
                                 <input type="text" class="exercise-input" data-answer="are">
                                 
@@ -1050,23 +1082,23 @@
                                 <p>5. Alex and Bruno ______ hungry.</p>
                                 <input type="text" class="exercise-input" data-answer="are">
                                 
-                                <button class="submit-btn" data-translate="submit-answers">Enviar Respostas</button>
+                                <button class="submit-btn">Enviar Respostas</button>
                             </div>
                         </div>
 
                         <div class="lesson-content">
-                            <h3 data-translate="lesson-2">Lição 2: Perguntas e Respostas</h3>
-                            <p data-translate="lesson-2-desc">Aprenda a formar perguntas e respostas em inglês.</p>
+                            <h3>Libição 2: Formação de Perguntas</h3>
+                            <p>Aprenda a formar perguntas e respostas em inglês.</p>
                             
-                            <h4 data-translate="questions-title">Formando Perguntas</h4>
-                            <p data-translate="questions-desc">Em inglês, para formar perguntas com o verbo TO BE, invertemos a posição do verbo e do sujeito.</p>
+                            <h4>Formando Perguntas</h4>
+                            <p>Em inglês, para formar perguntas com o verbo TO BE, invertemos a posição do verbo e do sujeito.</p>
                             
-                            <p data-translate="example">Exemplo:</p>
-                            <p data-translate="statement">Afirmação: You are tall. (Você é alto)</p>
-                            <p data-translate="question">Pergunta: Are you tall? (Você é alto?)</p>
+                            <p>Exemplo:</p>
+                            <p>Afirmação: You are tall. (Você é alto)</p>
+                            <p>Pergunta: Are you tall? (Você é alto?)</p>
                             
                             <div class="exercise">
-                                <h4 data-translate="exercise-2">Exercício 2: Transforme as afirmações em perguntas</h4>
+                                <h4>Exercício 2: Transforme as afirmações em perguntas</h4>
                                 <p>1. He is Brazilian. → _________________________</p>
                                 <input type="text" class="exercise-input" data-answer="Is he Brazilian?">
                                 
@@ -1082,13 +1114,24 @@
                                 <p>5. It is hot. → _________________________</p>
                                 <input type="text" class="exercise-input" data-answer="Is it hot?">
                                 
-                                <button class="submit-btn" data-translate="submit-answers">Enviar Respostas</button>
+                                <button class="submit-btn">Enviar Respostas</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Intermediate English Content -->
                     <div class="tab-pane" id="intermediate">
+                        <div class="content-card">
+                            <h4>Conteúdo do Curso de Inglês Intermediário</h4>
+                            <ul class="module-list">
+                                <li><i class="fas fa-check-circle"></i> Lição 4: Verbos de Ação e Perguntas com DO</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 5: THERE e Pronomes Pessoais</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 6: CAN (habilidade/permissão)</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 7: Present Continuous</li>
+                                <li><i class="fas fa-check-circle"></i> Exercícios Avançados</li>
+                            </ul>
+                        </div>
+
                         <div class="lesson-content">
                             <h3>Lição 4: Verbos de Ação e Perguntas com DO</h3>
                             <p>Aprenda a usar verbos de ação e a formar perguntas com o verbo auxiliar DO.</p>
@@ -1151,6 +1194,17 @@
 
                     <!-- Advanced English Content -->
                     <div class="tab-pane" id="advanced">
+                        <div class="content-card">
+                            <h4>Conteúdo do Curso de Inglês Avançado</h4>
+                            <ul class="module-list">
+                                <li><i class="fas fa-check-circle"></i> Lição 8: Terceira Pessoa e Pronomes Demonstrativos</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 9: Vocabulário de Família e Expressões</li>
+                                <li><i class="fas fa-check-circle"></i> Uso de ANY e SOME</li>
+                                <li><i class="fas fa-check-circle"></i> Estruturas Complexas</li>
+                                <li><i class="fas fa-check-circle"></i> Preparação para Conversação Fluente</li>
+                            </ul>
+                        </div>
+
                         <div class="lesson-content">
                             <h3>Lição 8: Terceira Pessoa e Pronomes Demonstrativos</h3>
                             <p>Aprenda as regras para a terceira pessoa singular e o uso de pronomes demonstrativos.</p>
@@ -1320,7 +1374,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3 data-translate="footer-title">English Learning Hub</h3>
+                    <h3 data-translate="footer-title">RealFluent</h3>
                     <p data-translate="footer-desc">Plataforma moderna de ensino de inglês com tecnologia de ponta e recursos inovadores.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1357,13 +1411,13 @@
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> <span data-translate="footer-address">Av. Paulista, 1000, São Paulo</span></li>
                         <li><i class="fas fa-phone"></i> <span data-translate="footer-phone">(11) 9999-9999</span></li>
-                        <li><i class="fas fa-envelope"></i> <span data-translate="footer-email">contato@englishhub.com</span></li>
+                        <li><i class="fas fa-envelope"></i> <span data-translate="footer-email">contato@realfluent.com</span></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2023 English Learning Hub. <span data-translate="footer-rights">Todos os direitos reservados.</span></p>
+                <p>&copy; 2023 RealFluent. <span data-translate="footer-rights">Todos os direitos reservados.</span></p>
             </div>
         </div>
     </footer>
@@ -1372,7 +1426,7 @@
         // Translations object
         const translations = {
             'pt': {
-                'site-name': 'English Hub',
+                'site-name': 'RealFluent',
                 'teacher-area': 'Área do Professor',
                 'live-class': 'Aula ao Vivo',
                 'nav-home': 'Início',
@@ -1403,6 +1457,7 @@
                 'course-basic-item3': 'Expressões do dia a dia',
                 'course-basic-item4': 'Exercícios práticos',
                 'course-learn-more': 'Saiba Mais',
+                'course-access': 'Acessar',
                 'course-intermediate': 'Inglês Intermediário',
                 'course-intermediate-desc': 'Para quem já tem conhecimentos básicos e quer avançar no aprendizado.',
                 'course-intermediate-item1': 'Gramática intermediária',
@@ -1462,20 +1517,20 @@
                 'feature-5-desc': 'Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.',
                 'feature-6-title': 'Integração Firebase',
                 'feature-6-desc': 'Armazenamento seguro e autenticação através do Firebase do Google.',
-                'footer-title': 'English Learning Hub',
+                'footer-title': 'RealFluent',
                 'footer-desc': 'Plataforma moderna de ensino de inglês com tecnologia de ponta e recursos inovadores.',
                 'footer-links': 'Links Rápidos',
                 'footer-courses': 'Cursos',
                 'footer-contact': 'Contato',
                 'footer-address': 'Av. Paulista, 1000, São Paulo',
                 'footer-phone': '(11) 9999-9999',
-                'footer-email': 'contato@englishhub.com',
+                'footer-email': 'contato@realfluent.com',
                 'footer-rights': 'Todos os direitos reservados.',
                 'course-business': 'Inglês para Negócios',
                 'course-exam': 'Preparação para TOEFL/IELTS'
             },
             'en': {
-                'site-name': 'English Hub',
+                'site-name': 'RealFluent',
                 'teacher-area': 'Teacher Area',
                 'live-class': 'Live Class',
                 'nav-home': 'Home',
@@ -1506,6 +1561,7 @@
                 'course-basic-item3': 'Everyday expressions',
                 'course-basic-item4': 'Practical exercises',
                 'course-learn-more': 'Learn More',
+                'course-access': 'Access',
                 'course-intermediate': 'Intermediate English',
                 'course-intermediate-desc': 'For those who already have basic knowledge and want to advance their learning.',
                 'course-intermediate-item1': 'Intermediate grammar',
@@ -1565,14 +1621,14 @@
                 'feature-5-desc': 'Exclusive panel for teachers to manage courses, materials and monitor students.',
                 'feature-6-title': 'Firebase Integration',
                 'feature-6-desc': 'Secure storage and authentication through Google Firebase.',
-                'footer-title': 'English Learning Hub',
+                'footer-title': 'RealFluent',
                 'footer-desc': 'Modern English teaching platform with cutting-edge technology and innovative resources.',
                 'footer-links': 'Quick Links',
                 'footer-courses': 'Courses',
                 'footer-contact': 'Contact',
                 'footer-address': 'Paulista Ave, 1000, São Paulo',
                 'footer-phone': '+55 (11) 9999-9999',
-                'footer-email': 'contact@englishhub.com',
+                'footer-email': 'contact@realfluent.com',
                 'footer-rights': 'All rights reserved.',
                 'course-business': 'Business English',
                 'course-exam': 'TOEFL/IELTS Preparation'
@@ -1728,10 +1784,51 @@
                     const card = this.closest('.course-card');
                     const title = card.querySelector('h3').textContent;
                     const price = card.querySelector('.price').textContent;
-                    const details = card.querySelector('.course-details').innerHTML;
+                    
+                    let detailsContent = '';
+                    if (title.includes('Básico')) {
+                        detailsContent = `
+                            <p class="price">${price}</p>
+                            <p>Este curso inclui:</p>
+                            <ul>
+                                <li>Pronomes e Verbo To Be</li>
+                                <li>Formação de Perguntas</li>
+                                <li>Futuro com "Going To"</li>
+                                <li>Vocabulário Essencial</li>
+                                <li>Exercícios Práticos</li>
+                            </ul>
+                            <button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>
+                        `;
+                    } else if (title.includes('Intermediário')) {
+                        detailsContent = `
+                            <p class="price">${price}</p>
+                            <p>Este curso inclui:</p>
+                            <ul>
+                                <li>Verbos de Ação e Perguntas com DO</li>
+                                <li>THERE e Pronomes Pessoais</li>
+                                <li>CAN (habilidade/permissão)</li>
+                                <li>Present Continuous</li>
+                                <li>Exercícios Avançados</li>
+                            </ul>
+                            <button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>
+                        `;
+                    } else if (title.includes('Avançado')) {
+                        detailsContent = `
+                            <p class="price">${price}</p>
+                            <p>Este curso inclui:</p>
+                            <ul>
+                                <li>Terceira Pessoa e Pronomes Demonstrativos</li>
+                                <li>Vocabulário de Família e Expressões</li>
+                                <li>Uso de ANY e SOME</li>
+                                <li>Estruturas Complexas</li>
+                                <li>Preparação para Conversação Fluente</li>
+                            </ul>
+                            <button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>
+                        `;
+                    }
                     
                     modalTitle.textContent = title;
-                    modalContent.innerHTML = `<p class="price">${price}</p>${details}<button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>`;
+                    modalContent.innerHTML = detailsContent;
                     
                     modal.style.display = 'flex';
                 });
@@ -1791,10 +1888,20 @@
                     });
                     
                     if (allCorrect) {
-                        alert(translations[currentLang]['exercise-correct'] || 'Parabéns! Todas as respostas estão corretas.');
+                        alert('Parabéns! Todas as respostas estão corretas.');
                     } else {
-                        alert(translations[currentLang]['exercise-incorrect'] || 'Algumas respostas estão incorretas. Tente novamente.');
+                        alert('Algumas respostas estão incorretas. Tente novamente.');
                     }
+                });
+            });
+
+            // Access button functionality
+            const accessButtons = document.querySelectorAll('.access-btn');
+            accessButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const courseType = this.getAttribute('data-course');
+                    alert(`Acessando o curso de Inglês ${courseType === 'basic' ? 'Básico' : courseType === 'intermediate' ? 'Intermediário' : 'Avançado'}`);
                 });
             });
         });
