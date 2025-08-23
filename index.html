@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Learning Hub - Plataforma de Ensino de Inglês</title>
+    <title>RealFluent - Aprenda Idiomas Online</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -133,7 +133,7 @@
         /* Hero Section */
         .hero {
             padding: 80px 0;
-            background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYtyCGvdDXk4AKdmi6vw-fNARCsFsfNgPTm3iDEx6Sn3Z6oGPCUR2XJxZXCsAhc1kL6qgyokcrXqCEjO6KfJpV0gYZ34oRUrCVyynyHjTB1Yln0o4To5aHiM_hR3CKMEF9Bk8p8TAiGCD_QJ0_LUO_js1Usus4jtbzaRTj2jGltqwuD8J3vYt0PA51olnT/s1764/Captura%20de%20tela%202025-08-23%20141714.png') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
             color: white;
             text-align: center;
             position: relative;
@@ -631,19 +631,140 @@
         .demo-admin-btn:hover {
             background: var(--secondary);
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .modal-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Student Dashboard */
+        .dashboard {
+            display: none;
+            padding: 80px 0;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .dashboard-courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Teacher Dashboard */
+        .teacher-dashboard {
+            display: none;
+            padding: 80px 0;
+        }
+
+        .teacher-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .teacher-action-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--hover-effect);
+            cursor: pointer;
+        }
+
+        .teacher-action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .teacher-action-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Verification Code Input */
+        .verification-input {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .verification-input input {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .verification-input input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
     </style>
 </head>
 <body>
     <!-- Language Toggle -->
     <div class="language-toggle">
-        <button class="lang-btn active">PT</button>
-        <button class="lang-btn">EN</button>
+        <button class="lang-btn active" id="ptBtn">PT</button>
+        <button class="lang-btn" id="enBtn">EN</button>
     </div>
 
-    <!-- Video Player (Wondershare Integration) -->
+    <!-- Video Player -->
     <div class="video-player">
         <div class="video-header">
-            <h3>Aula ao Vivo</h3>
+            <h3 data-translate="live_class">Aula ao Vivo</h3>
             <button class="video-close"><i class="fas fa-times"></i></button>
         </div>
         <div class="video-content">
@@ -654,14 +775,14 @@
     </div>
 
     <!-- Demo Admin Button -->
-    <button class="demo-admin-btn" id="demoAdminBtn">Área do Professor</button>
+    <button class="demo-admin-btn" id="demoAdminBtn" data-translate="teacher_area">Área do Professor</button>
 
     <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                <span>English Hub</span>
+                <span>RealFluent</span>
             </div>
 
             <button class="mobile-menu-btn">
@@ -670,17 +791,17 @@
 
             <nav>
                 <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#courses">Cursos</a></li>
-                    <li><a href="#features">Recursos</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="#home" data-translate="home">Início</a></li>
+                    <li><a href="#courses" data-translate="courses">Cursos</a></li>
+                    <li><a href="#features" data-translate="features">Recursos</a></li>
+                    <li><a href="#about" data-translate="about">Sobre</a></li>
+                    <li><a href="#contact" data-translate="contact">Contato</a></li>
                 </ul>
             </nav>
 
             <div class="auth-buttons">
-                <a href="#login" class="btn btn-outline">Entrar</a>
-                <a href="#signup" class="btn btn-primary">Cadastrar</a>
+                <a href="#" class="btn btn-outline" id="loginBtn" data-translate="login">Entrar</a>
+                <a href="#" class="btn btn-primary" id="signupBtn" data-translate="signup">Cadastrar</a>
             </div>
         </div>
     </header>
@@ -688,9 +809,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1>Aprenda Inglês de Forma Moderna e Eficiente</h1>
-            <p>Nossa plataforma oferece cursos de inglês com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.</p>
-            <a href="#courses" class="btn btn-primary">Explorar Cursos</a>
+            <h1 data-translate="hero_title">Aprenda Idiomas de Forma Moderna e Eficiente</h1>
+            <p data-translate="hero_desc">Nossa plataforma oferece cursos de idiomas com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.</p>
+            <a href="#courses" class="btn btn-primary" data-translate="explore_courses">Explorar Cursos</a>
         </div>
     </section>
 
@@ -698,8 +819,8 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Recursos da Plataforma</h2>
-                <p>Descubra como nossa plataforma pode transformar sua experiência de aprendizado de inglês</p>
+                <h2 data-translate="features_title">Recursos da Plataforma</h2>
+                <p data-translate="features_desc">Descubra como nossa plataforma pode transformar sua experiência de aprendizado de idiomas</p>
             </div>
 
             <div class="features-grid">
@@ -707,48 +828,48 @@
                     <div class="feature-icon">
                         <i class="fas fa-upload"></i>
                     </div>
-                    <h3>Upload de Materiais</h3>
-                    <p>Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.</p>
+                    <h3 data-translate="feature1_title">Upload de Materiais</h3>
+                    <p data-translate="feature1_desc">Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3>Videoaulas Integradas</h3>
-                    <p>Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.</p>
+                    <h3 data-translate="feature2_title">Videoaulas Integradas</h3>
+                    <p data-translate="feature2_desc">Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <h3>Sistema de Pagamento</h3>
-                    <p>Processamento seguro de pagamentos com emissão automática de nota fiscal.</p>
+                    <h3 data-translate="feature3_title">Sistema de Pagamento</h3>
+                    <p data-translate="feature3_desc">Processamento seguro de pagamentos com emissão automática de nota fiscal.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Design Responsivo</h3>
-                    <p>Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.</p>
+                    <h3 data-translate="feature4_title">Design Responsivo</h3>
+                    <p data-translate="feature4_desc">Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <h3>Área do Professor</h3>
-                    <p>Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.</p>
+                    <h3 data-translate="feature5_title">Área do Professor</h3>
+                    <p data-translate="feature5_desc">Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-fire"></i>
                     </div>
-                    <h3>Integração Firebase</h3>
-                    <p>Armazenamento seguro e autenticação através do Firebase do Google.</p>
+                    <h3 data-translate="feature6_title">Integração Firebase</h3>
+                    <p data-translate="feature6_desc">Armazenamento seguro e autenticação através do Firebase do Google.</p>
                 </div>
             </div>
         </div>
@@ -758,8 +879,8 @@
     <section class="courses" id="courses">
         <div class="container">
             <div class="section-title">
-                <h2>Nossos Cursos</h2>
-                <p>Escolha entre uma variedade de cursos de inglês para todos os níveis</p>
+                <h2 data-translate="courses_title">Nossos Cursos</h2>
+                <p data-translate="courses_desc">Escolha entre uma variedade de cursos de idiomas para todos os níveis</p>
             </div>
 
             <div class="courses-grid">
@@ -768,14 +889,14 @@
                         <i class="fas fa-book-open"></i>
                     </div>
                     <div class="course-content">
-                        <h3>Inglês Básico</h3>
-                        <p>Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.</p>
+                        <h3 data-translate="course1_title">Inglês Básico</h3>
+                        <p data-translate="course1_desc">Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 40 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 120 alunos</span>
+                            <span><i class="far fa-clock"></i> <span data-translate="hours">40 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="students">120 alunos</span></span>
                         </div>
                         <div class="price">R$ 199,90</div>
-                        <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        <a href="#" class="btn btn-primary" data-translate="learn_more">Saiba Mais</a>
                     </div>
                 </div>
 
@@ -784,14 +905,14 @@
                         <i class="fas fa-language"></i>
                     </div>
                     <div class="course-content">
-                        <h3>Inglês Intermediário</h3>
-                        <p>Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
+                        <h3 data-translate="course2_title">Espanhol Intermediário</h3>
+                        <p data-translate="course2_desc">Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 60 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 85 alunos</span>
+                            <span><i class="far fa-clock"></i> <span data-translate="hours">60 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="students">85 alunos</span></span>
                         </div>
                         <div class="price">R$ 299,90</div>
-                        <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        <a href="#" class="btn btn-primary" data-translate="learn_more">Saiba Mais</a>
                     </div>
                 </div>
 
@@ -800,14 +921,14 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="course-content">
-                        <h3>Inglês Avançado</h3>
-                        <p>Perfeito para quem busca fluência e domínio completo do idioma.</p>
+                        <h3 data-translate="course3_title">Francês Avançado</h3>
+                        <p data-translate="course3_desc">Perfeito para quem busca fluência e domínio completo do idioma.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 80 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 64 alunos</span>
+                            <span><i class="far fa-clock"></i> <span data-translate="hours">80 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="students">64 alunos</span></span>
                         </div>
                         <div class="price">R$ 399,90</div>
-                        <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        <a href="#" class="btn btn-primary" data-translate="learn_more">Saiba Mais</a>
                     </div>
                 </div>
             </div>
@@ -818,19 +939,151 @@
     <section class="carousel">
         <div class="container">
             <div class="section-title">
-                <h2>Materiais Didáticos</h2>
-                <p>Conheça alguns dos materiais disponíveis em nossa plataforma</p>
+                <h2 data-translate="materials_title">Materiais Didáticos</h2>
+                <p data-translate="materials_desc">Conheça alguns dos materiais disponíveis em nossa plataforma</p>
             </div>
 
             <div class="carousel-container">
                 <div class="carousel-slide">
-                    <div class="carousel-item">Conteúdo Interativo</div>
-                    <div class="carousel-item">Exercícios Práticos</div>
-                    <div class="carousel-item">Avaliações Personalizadas</div>
+                    <div class="carousel-item" data-translate="carousel1">Conteúdo Interativo</div>
+                    <div class="carousel-item" data-translate="carousel2">Exercícios Práticos</div>
+                    <div class="carousel-item" data-translate="carousel3">Avaliações Personalizadas</div>
                 </div>
                 <div class="carousel-controls">
                     <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
                     <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Dashboard -->
+    <section class="dashboard" id="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2 class="welcome-text" data-translate="welcome">Bem-vindo, <span id="userName"></span>!</h2>
+                <button class="btn btn-outline" id="logoutBtn" data-translate="logout">Sair</button>
+            </div>
+
+            <div class="section-title">
+                <h2 data-translate="my_courses">Meus Cursos</h2>
+                <p data-translate="my_courses_desc">Acompanhe seus cursos adquiridos</p>
+            </div>
+
+            <div class="dashboard-courses">
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-translate="course1_title">Inglês Básico</h3>
+                        <p data-translate="course1_desc">Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                            <span>65% <span data-translate="complete">completo</span></span>
+                        </div>
+                        <a href="#" class="btn btn-primary" data-translate="continue">Continuar</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-translate="course2_title">Espanhol Intermediário</h3>
+                        <p data-translate="course2_desc">Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 30%"></div>
+                            </div>
+                            <span>30% <span data-translate="complete">completo</span></span>
+                        </div>
+                        <a href="#" class="btn btn-primary" data-translate="continue">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Dashboard -->
+    <section class="teacher-dashboard" id="teacherDashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2 class="welcome-text" data-translate="teacher_dashboard">Painel do Professor</h2>
+                <button class="btn btn-outline" id="teacherLogoutBtn" data-translate="logout">Sair</button>
+            </div>
+
+            <div class="teacher-actions">
+                <div class="teacher-action-card">
+                    <div class="teacher-action-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3 data-translate="upload_materials">Upload de Materiais</h3>
+                    <p data-translate="upload_materials_desc">Faça upload de materiais para seus cursos</p>
+                </div>
+
+                <div class="teacher-action-card">
+                    <div class="teacher-action-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-translate="manage_students">Gerenciar Alunos</h3>
+                    <p data-translate="manage_students_desc">Visualize e gerencie seus alunos</p>
+                </div>
+
+                <div class="teacher-action-card">
+                    <div class="teacher-action-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 data-translate="view_stats">Ver Estatísticas</h3>
+                    <p data-translate="view_stats_desc">Acompanhe o desempenho dos seus alunos</p>
+                </div>
+
+                <div class="teacher-action-card">
+                    <div class="teacher-action-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 data-translate="schedule_class">Agendar Aula</h3>
+                    <p data-translate="schedule_class_desc">Agende uma nova aula ao vivo</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2 data-translate="my_courses">Meus Cursos</h2>
+                <p data-translate="teacher_courses_desc">Gerencie os cursos que você ministra</p>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-translate="course1_title">Inglês Básico</h3>
+                        <p data-translate="course1_desc">Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.</p>
+                        <div class="course-info">
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="students">120 alunos</span></span>
+                            <span><i class="fas fa-star"></i> 4.8/5.0</span>
+                        </div>
+                        <a href="#" class="btn btn-primary" data-translate="manage">Gerenciar</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-translate="course2_title">Espanhol Intermediário</h3>
+                        <p data-translate="course2_desc">Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
+                        <div class="course-info">
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="students">85 alunos</span></span>
+                            <span><i class="fas fa-star"></i> 4.9/5.0</span>
+                        </div>
+                        <a href="#" class="btn btn-primary" data-translate="manage">Gerenciar</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -873,8 +1126,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>English Learning Hub</h3>
-                    <p>Plataforma moderna de ensino de inglês com tecnologia de ponta e recursos inovadores.</p>
+                    <h3>RealFluent</h3>
+                    <p data-translate="footer_desc">Plataforma moderna de ensino de idiomas com tecnologia de ponta e recursos inovadores.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -884,46 +1137,345 @@
                 </div>
 
                 <div class="footer-column">
-                    <h3>Links Rápidos</h3>
+                    <h3 data-translate="quick_links">Links Rápidos</h3>
                     <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#courses">Cursos</a></li>
-                        <li><a href="#features">Recursos</a></li>
-                        <li><a href="#about">Sobre Nós</a></li>
-                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#home" data-translate="home">Início</a></li>
+                        <li><a href="#courses" data-translate="courses">Cursos</a></li>
+                        <li><a href="#features" data-translate="features">Recursos</a></li>
+                        <li><a href="#about" data-translate="about">Sobre Nós</a></li>
+                        <li><a href="#contact" data-translate="contact">Contato</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h3>Cursos</h3>
+                    <h3 data-translate="courses">Cursos</h3>
                     <ul>
-                        <li><a href="#">Inglês Básico</a></li>
-                        <li><a href="#">Inglês Intermediário</a></li>
-                        <li><a href="#">Inglês Avançado</a></li>
-                        <li><a href="#">Inglês para Negócios</a></li>
-                        <li><a href="#">Preparação para TOEFL/IELTS</a></li>
+                        <li><a href="#" data-translate="course1_title">Inglês Básico</a></li>
+                        <li><a href="#" data-translate="course2_title">Espanhol Intermediário</a></li>
+                        <li><a href="#" data-translate="course3_title">Francês Avançado</a></li>
+                        <li><a href="#" data-translate="business_course">Inglês para Negócios</a></li>
+                        <li><a href="#" data-translate="exam_prep">Preparação para TOEFL/IELTS</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h3>Contato</h3>
+                    <h3 data-translate="contact">Contato</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo</li>
                         <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
-                        <li><i class="fas fa-envelope"></i> contato@englishhub.com</li>
+                        <li><i class="fas fa-envelope"></i> contato@realfluent.com</li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2023 English Learning Hub. Todos os direitos reservados.</p>
+                <p>&copy; 2023 RealFluent. <span data-translate="all_rights">Todos os direitos reservados.</span></p>
             </div>
         </div>
     </footer>
 
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeLoginModal">&times;</button>
+            <h2 class="modal-title" data-translate="login">Entrar</h2>
+            <div class="form-group">
+                <label for="loginEmail" data-translate="email">E-mail</label>
+                <input type="email" id="loginEmail" placeholder="Seu e-mail">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword" data-translate="password">Senha</label>
+                <input type="password" id="loginPassword" placeholder="Sua senha">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" id="doLogin" data-translate="login">Entrar</button>
+            <p style="text-align: center; margin-top: 20px;">
+                <span data-translate="no_account">Não tem uma conta?</span> 
+                <a href="#" id="goToSignup" data-translate="signup">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeSignupModal">&times;</button>
+            <h2 class="modal-title" data-translate="signup">Cadastrar</h2>
+            <div class="form-group">
+                <label for="signupName" data-translate="full_name">Nome Completo</label>
+                <input type="text" id="signupName" placeholder="Seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="signupEmail" data-translate="email">E-mail</label>
+                <input type="email" id="signupEmail" placeholder="Seu e-mail">
+            </div>
+            <div class="form-group">
+                <label for="signupPhone" data-translate="phone">Telefone</label>
+                <input type="tel" id="signupPhone" placeholder="Seu telefone com DDD">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword" data-translate="password">Senha</label>
+                <input type="password" id="signupPassword" placeholder="Crie uma senha">
+            </div>
+            <div class="form-group">
+                <label for="signupConfirmPassword" data-translate="confirm_password">Confirmar Senha</label>
+                <input type="password" id="signupConfirmPassword" placeholder="Confirme sua senha">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" id="doSignup" data-translate="signup">Cadastrar</button>
+            <p style="text-align: center; margin-top: 20px;">
+                <span data-translate="have_account">Já tem uma conta?</span> 
+                <a href="#" id="goToLogin" data-translate="login">Entrar</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Verification Modal -->
+    <div class="modal" id="verificationModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeVerificationModal">&times;</button>
+            <h2 class="modal-title" data-translate="verification">Verificação</h2>
+            <p style="text-align: center; margin-bottom: 20px;" data-translate="verification_desc">
+                Enviamos um código de 5 dígitos para o seu telefone. Por favor, insira-o abaixo.
+            </p>
+            <div class="verification-input">
+                <input type="text" maxlength="1" pattern="[0-9]" required>
+                <input type="text" maxlength="1" pattern="[0-9]" required>
+                <input type="text" maxlength="1" pattern="[0-9]" required>
+                <input type="text" maxlength="1" pattern="[0-9]" required>
+                <input type="text" maxlength="1" pattern="[0-9]" required>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" id="doVerification" data-translate="verify">Verificar</button>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="#" id="resendCode" data-translate="resend_code">Reenviar código</a>
+            </p>
+        </div>
+    </div>
+
     <script>
+        // Translations object
+        const translations = {
+            pt: {
+                // Navigation
+                "home": "Início",
+                "courses": "Cursos",
+                "features": "Recursos",
+                "about": "Sobre",
+                "contact": "Contato",
+                "login": "Entrar",
+                "signup": "Cadastrar",
+                "teacher_area": "Área do Professor",
+                "logout": "Sair",
+                
+                // Hero section
+                "hero_title": "Aprenda Idiomas de Forma Moderna e Eficiente",
+                "hero_desc": "Nossa plataforma oferece cursos de idiomas com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.",
+                "explore_courses": "Explorar Cursos",
+                
+                // Features section
+                "features_title": "Recursos da Plataforma",
+                "features_desc": "Descubra como nossa plataforma pode transformar sua experiência de aprendizado de idiomas",
+                "feature1_title": "Upload de Materiais",
+                "feature1_desc": "Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.",
+                "feature2_title": "Videoaulas Integradas",
+                "feature2_desc": "Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.",
+                "feature3_title": "Sistema de Pagamento",
+                "feature3_desc": "Processamento seguro de pagamentos com emissão automática de nota fiscal.",
+                "feature4_title": "Design Responsivo",
+                "feature4_desc": "Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.",
+                "feature5_title": "Área do Professor",
+                "feature5_desc": "Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.",
+                "feature6_title": "Integração Firebase",
+                "feature6_desc": "Armazenamento seguro e autenticação através do Firebase do Google.",
+                
+                // Courses section
+                "courses_title": "Nossos Cursos",
+                "courses_desc": "Escolha entre uma variedade de cursos de idiomas para todos os níveis",
+                "course1_title": "Inglês Básico",
+                "course1_desc": "Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.",
+                "course2_title": "Espanhol Intermediário",
+                "course2_desc": "Para quem já tem conhecimentos básicos e quer avançar no aprendizado.",
+                "course3_title": "Francês Avançado",
+                "course3_desc": "Perfeito para quem busca fluência e domínio completo do idioma.",
+                "business_course": "Inglês para Negócios",
+                "exam_prep": "Preparação para TOEFL/IELTS",
+                "hours": "horas",
+                "students": "alunos",
+                "learn_more": "Saiba Mais",
+                
+                // Carousel section
+                "materials_title": "Materiais Didáticos",
+                "materials_desc": "Conheça alguns dos materiais disponíveis em nossa plataforma",
+                "carousel1": "Conteúdo Interativo",
+                "carousel2": "Exercícios Práticos",
+                "carousel3": "Avaliações Personalizadas",
+                
+                // Dashboard
+                "welcome": "Bem-vindo",
+                "my_courses": "Meus Cursos",
+                "my_courses_desc": "Acompanhe seus cursos adquiridos",
+                "complete": "completo",
+                "continue": "Continuar",
+                
+                // Teacher dashboard
+                "teacher_dashboard": "Painel do Professor",
+                "upload_materials": "Upload de Materiais",
+                "upload_materials_desc": "Faça upload de materiais para seus cursos",
+                "manage_students": "Gerenciar Alunos",
+                "manage_students_desc": "Visualize e gerencie seus alunos",
+                "view_stats": "Ver Estatísticas",
+                "view_stats_desc": "Acompanhe o desempenho dos seus alunos",
+                "schedule_class": "Agendar Aula",
+                "schedule_class_desc": "Agende uma nova aula ao vivo",
+                "manage": "Gerenciar",
+                "teacher_courses_desc": "Gerencie os cursos que você ministra",
+                
+                // Footer
+                "footer_desc": "Plataforma moderna de ensino de idiomas com tecnologia de ponta e recursos inovadores.",
+                "quick_links": "Links Rápidos",
+                "all_rights": "Todos os direitos reservados.",
+                
+                // Modals
+                "email": "E-mail",
+                "password": "Senha",
+                "no_account": "Não tem uma conta?",
+                "have_account": "Já tem uma conta?",
+                "full_name": "Nome Completo",
+                "phone": "Telefone",
+                "confirm_password": "Confirmar Senha",
+                "verification": "Verificação",
+                "verification_desc": "Enviamos um código de 5 dígitos para o seu telefone. Por favor, insira-o abaixo.",
+                "verify": "Verificar",
+                "resend_code": "Reenviar código",
+                "live_class": "Aula ao Vivo"
+            },
+            en: {
+                // Navigation
+                "home": "Home",
+                "courses": "Courses",
+                "features": "Features",
+                "about": "About",
+                "contact": "Contact",
+                "login": "Login",
+                "signup": "Sign Up",
+                "teacher_area": "Teacher Area",
+                "logout": "Logout",
+                
+                // Hero section
+                "hero_title": "Learn Languages in a Modern and Effective Way",
+                "hero_desc": "Our platform offers language courses with cutting-edge technology, diverse materials and complete support for your learning.",
+                "explore_courses": "Explore Courses",
+                
+                // Features section
+                "features_title": "Platform Features",
+                "features_desc": "Discover how our platform can transform your language learning experience",
+                "feature1_title": "Materials Upload",
+                "feature1_desc": "Teachers can upload materials in various formats: PDF, PPT, Word and more.",
+                "feature2_title": "Integrated Video Lessons",
+                "feature2_desc": "Recording and integration of video lessons with Wondershare, available on all devices.",
+                "feature3_title": "Payment System",
+                "feature3_desc": "Secure payment processing with automatic invoice issuance.",
+                "feature4_title": "Responsive Design",
+                "feature4_desc": "Fully responsive platform that adapts to computers, tablets and smartphones.",
+                "feature5_title": "Teacher Area",
+                "feature5_desc": "Exclusive panel for teachers to manage courses, materials and monitor students.",
+                "feature6_title": "Firebase Integration",
+                "feature6_desc": "Secure storage and authentication through Google's Firebase.",
+                
+                // Courses section
+                "courses_title": "Our Courses",
+                "courses_desc": "Choose from a variety of language courses for all levels",
+                "course1_title": "Basic English",
+                "course1_desc": "Ideal course for beginners who want to learn the foundation of the English language.",
+                "course2_title": "Intermediate Spanish",
+                "course2_desc": "For those who already have basic knowledge and want to advance their learning.",
+                "course3_title": "Advanced French",
+                "course3_desc": "Perfect for those seeking fluency and complete mastery of the language.",
+                "business_course": "Business English",
+                "exam_prep": "TOEFL/IELTS Preparation",
+                "hours": "hours",
+                "students": "students",
+                "learn_more": "Learn More",
+                
+                // Carousel section
+                "materials_title": "Teaching Materials",
+                "materials_desc": "Discover some of the materials available on our platform",
+                "carousel1": "Interactive Content",
+                "carousel2": "Practical Exercises",
+                "carousel3": "Personalized Assessments",
+                
+                // Dashboard
+                "welcome": "Welcome",
+                "my_courses": "My Courses",
+                "my_courses_desc": "Track your purchased courses",
+                "complete": "complete",
+                "continue": "Continue",
+                
+                // Teacher dashboard
+                "teacher_dashboard": "Teacher Dashboard",
+                "upload_materials": "Upload Materials",
+                "upload_materials_desc": "Upload materials for your courses",
+                "manage_students": "Manage Students",
+                "manage_students_desc": "View and manage your students",
+                "view_stats": "View Statistics",
+                "view_stats_desc": "Track your students' performance",
+                "schedule_class": "Schedule Class",
+                "schedule_class_desc": "Schedule a new live class",
+                "manage": "Manage",
+                "teacher_courses_desc": "Manage the courses you teach",
+                
+                // Footer
+                "footer_desc": "Modern language teaching platform with cutting-edge technology and innovative resources.",
+                "quick_links": "Quick Links",
+                "all_rights": "All rights reserved.",
+                
+                // Modals
+                "email": "Email",
+                "password": "Password",
+                "no_account": "Don't have an account?",
+                "have_account": "Already have an account?",
+                "full_name": "Full Name",
+                "phone": "Phone",
+                "confirm_password": "Confirm Password",
+                "verification": "Verification",
+                "verification_desc": "We've sent a 5-digit code to your phone. Please enter it below.",
+                "verify": "Verify",
+                "resend_code": "Resend code",
+                "live_class": "Live Class"
+            }
+        };
+
         // Demo functionality for the platform
         document.addEventListener('DOMContentLoaded', function() {
+            // Set current language
+            let currentLang = 'pt';
+            
+            // Function to apply translations
+            function applyTranslations(lang) {
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+            }
+            
+            // Language toggle functionality
+            const ptBtn = document.getElementById('ptBtn');
+            const enBtn = document.getElementById('enBtn');
+            
+            ptBtn.addEventListener('click', function() {
+                currentLang = 'pt';
+                ptBtn.classList.add('active');
+                enBtn.classList.remove('active');
+                applyTranslations('pt');
+            });
+            
+            enBtn.addEventListener('click', function() {
+                currentLang = 'en';
+                enBtn.classList.add('active');
+                ptBtn.classList.remove('active');
+                applyTranslations('en');
+            });
+            
             // Carousel functionality
             const slide = document.querySelector('.carousel-slide');
             const items = document.querySelectorAll('.carousel-item');
@@ -951,16 +1503,6 @@
                 updateCarousel();
             }, 5000);
             
-            // Language toggle
-            const langButtons = document.querySelectorAll('.lang-btn');
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    langButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    // Here you would typically update the page content to the selected language
-                });
-            });
-            
             // Video player close button
             const videoClose = document.querySelector('.video-close');
             const videoPlayer = document.querySelector('.video-player');
@@ -975,10 +1517,10 @@
             demoAdminBtn.addEventListener('click', function() {
                 if (adminSection.style.display === 'block') {
                     adminSection.style.display = 'none';
-                    demoAdminBtn.textContent = 'Área do Professor';
+                    demoAdminBtn.textContent = translations[currentLang]['teacher_area'];
                 } else {
                     adminSection.style.display = 'block';
-                    demoAdminBtn.textContent = 'Fechar Área do Professor';
+                    demoAdminBtn.textContent = translations[currentLang]['logout'];
                     // Scroll to admin section
                     adminSection.scrollIntoView({behavior: 'smooth'});
                 }
@@ -997,9 +1539,178 @@
                     this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.05)';
                 });
             });
+            
+            // Modal functionality
+            const loginModal = document.getElementById('loginModal');
+            const signupModal = document.getElementById('signupModal');
+            const verificationModal = document.getElementById('verificationModal');
+            const loginBtn = document.getElementById('loginBtn');
+            const signupBtn = document.getElementById('signupBtn');
+            const closeLoginModal = document.getElementById('closeLoginModal');
+            const closeSignupModal = document.getElementById('closeSignupModal');
+            const closeVerificationModal = document.getElementById('closeVerificationModal');
+            const goToSignup = document.getElementById('goToSignup');
+            const goToLogin = document.getElementById('goToLogin');
+            const doLogin = document.getElementById('doLogin');
+            const doSignup = document.getElementById('doSignup');
+            const doVerification = document.getElementById('doVerification');
+            const resendCode = document.getElementById('resendCode');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const teacherLogoutBtn = document.getElementById('teacherLogoutBtn');
+            const dashboard = document.getElementById('dashboard');
+            const teacherDashboard = document.getElementById('teacherDashboard');
+            
+            // Open modals
+            loginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.style.display = 'flex';
+            });
+            
+            signupBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                signupModal.style.display = 'flex';
+            });
+            
+            // Close modals
+            closeLoginModal.addEventListener('click', function() {
+                loginModal.style.display = 'none';
+            });
+            
+            closeSignupModal.addEventListener('click', function() {
+                signupModal.style.display = 'none';
+            });
+            
+            closeVerificationModal.addEventListener('click', function() {
+                verificationModal.style.display = 'none';
+            });
+            
+            // Switch between login and signup modals
+            goToSignup.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.style.display = 'none';
+                signupModal.style.display = 'flex';
+            });
+            
+            goToLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                signupModal.style.display = 'none';
+                loginModal.style.display = 'flex';
+            });
+            
+            // Login functionality
+            doLogin.addEventListener('click', function() {
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                // Simple validation
+                if (email && password) {
+                    // Check if it's a teacher login
+                    if (email.includes('teacher') || email.includes('professor')) {
+                        teacherDashboard.style.display = 'block';
+                        document.querySelector('header').style.display = 'none';
+                        document.querySelector('.hero').style.display = 'none';
+                        document.querySelector('.features').style.display = 'none';
+                        document.querySelector('.courses').style.display = 'none';
+                        document.querySelector('.carousel').style.display = 'none';
+                        document.querySelector('footer').style.display = 'none';
+                        loginModal.style.display = 'none';
+                    } else {
+                        // For students, show verification
+                        loginModal.style.display = 'none';
+                        verificationModal.style.display = 'flex';
+                    }
+                } else {
+                    alert('Por favor, preencha todos os campos.');
+                }
+            });
+            
+            // Signup functionality
+            doSignup.addEventListener('click', function() {
+                const name = document.getElementById('signupName').value;
+                const email = document.getElementById('signupEmail').value;
+                const phone = document.getElementById('signupPhone').value;
+                const password = document.getElementById('signupPassword').value;
+                const confirmPassword = document.getElementById('signupConfirmPassword').value;
+                
+                // Simple validation
+                if (name && email && phone && password && confirmPassword) {
+                    if (password === confirmPassword) {
+                        // Show verification modal
+                        signupModal.style.display = 'none';
+                        verificationModal.style.display = 'flex';
+                        
+                        // Simulate sending verification code
+                        setTimeout(function() {
+                            alert('Código de verificação enviado para o seu telefone!');
+                        }, 1000);
+                    } else {
+                        alert('As senhas não coincidem.');
+                    }
+                } else {
+                    alert('Por favor, preencha todos os campos.');
+                }
+            });
+            
+            // Verification functionality
+            doVerification.addEventListener('click', function() {
+                // For demo purposes, any code will work
+                dashboard.style.display = 'block';
+                document.getElementById('userName').textContent = document.getElementById('signupName').value || 'João Silva';
+                document.querySelector('header').style.display = 'none';
+                document.querySelector('.hero').style.display = 'none';
+                document.querySelector('.features').style.display = 'none';
+                document.querySelector('.courses').style.display = 'none';
+                document.querySelector('.carousel').style.display = 'none';
+                document.querySelector('footer').style.display = 'none';
+                verificationModal.style.display = 'none';
+                
+                // Show success message
+                alert('Conta verificada com sucesso! Bem-vindo à RealFluent.');
+            });
+            
+            // Resend code functionality
+            resendCode.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Código reenviado para o seu telefone!');
+            });
+            
+            // Logout functionality
+            logoutBtn.addEventListener('click', function() {
+                dashboard.style.display = 'none';
+                document.querySelector('header').style.display = 'block';
+                document.querySelector('.hero').style.display = 'block';
+                document.querySelector('.features').style.display = 'block';
+                document.querySelector('.courses').style.display = 'block';
+                document.querySelector('.carousel').style.display = 'block';
+                document.querySelector('footer').style.display = 'block';
+            });
+            
+            teacherLogoutBtn.addEventListener('click', function() {
+                teacherDashboard.style.display = 'none';
+                document.querySelector('header').style.display = 'block';
+                document.querySelector('.hero').style.display = 'block';
+                document.querySelector('.features').style.display = 'block';
+                document.querySelector('.courses').style.display = 'block';
+                document.querySelector('.carousel').style.display = 'block';
+                document.querySelector('footer').style.display = 'block';
+            });
+            
+            // Focus management for verification inputs
+            const verificationInputs = document.querySelectorAll('.verification-input input');
+            verificationInputs.forEach((input, index) => {
+                input.addEventListener('input', function() {
+                    if (this.value.length === 1 && index < verificationInputs.length - 1) {
+                        verificationInputs[index + 1].focus();
+                    }
+                });
+                
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && this.value === '' && index > 0) {
+                        verificationInputs[index - 1].focus();
+                    }
+                });
+            });
         });
     </script>
 </body>
-
 </html>
-
