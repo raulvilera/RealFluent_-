@@ -271,6 +271,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: var(--hover-effect);
+            position: relative;
         }
 
         .course-card:hover {
@@ -826,6 +827,74 @@
             margin-right: 10px;
             color: var(--primary);
         }
+
+        /* Signup Modal Styles */
+        .signup-form {
+            margin-top: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-field {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-field input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: var(--hover-effect);
+        }
+
+        .form-submit:hover {
+            background: var(--secondary);
+        }
+
+        /* Course Details Button */
+        .details-btn {
+            display: none;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            background: var(--accent);
+            color: white;
+        }
+
+        .details-btn:hover {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
     </style>
 </head>
 <body>
@@ -875,7 +944,7 @@
 
             <div class="auth-buttons">
                 <a href="#login" class="btn btn-outline" data-translate="nav-login">Entrar</a>
-                <a href="#signup" class="btn btn-primary" data-translate="nav-signup">Cadastrar</a>
+                <a href="#signup" class="btn btn-primary" id="signupBtn" data-translate="nav-signup">Cadastrar</a>
             </div>
         </div>
     </header>
@@ -937,8 +1006,106 @@
                             <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">120 alunos</span></span>
                         </div>
                         <div class="price">R$ 199,90</div>
-                        <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="basic">Saiba Mais</a>
                         <a href="#" class="btn access-btn" data-translate="course-access" data-course="basic">Acessar</a>
+                        <a href="#" class="btn details-btn" data-translate="course-learn-more" data-course="basic">Saiba Mais</a>
+                        
+                        <div class="course-details" data-course="basic">
+                            <h4>Conteúdo do Curso</h4>
+                            <ul class="module-list">
+                                <li><i class="fas fa-check-circle"></i> Lição 1: Pronomes e Verbo To Be</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 2: Formação de Perguntas</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 3: Futuro com "Going To"</li>
+                                <li><i class="fas fa-check-circle"></i> Vocabulário Essencial</li>
+                                <li><i class="fas fa-check-circle"></i> Exercícios Práticos</li>
+                            </ul>
+                            
+                            <div class="lesson-content">
+                                <h3>Lição 1: Pronomes e Verbo To Be</h3>
+                                <p>Aprenda os pronomes pessoais e como usar o verbo to be em inglês.</p>
+                                
+                                <h4>Pronomes</h4>
+                                <table>
+                                    <tr>
+                                        <th>Inglês</th>
+                                        <th>Português</th>
+                                    </tr>
+                                    <tr>
+                                        <td>I</td>
+                                        <td>Eu</td>
+                                    </tr>
+                                    <tr>
+                                        <td>You</td>
+                                        <td>Você</td>
+                                    </tr>
+                                    <tr>
+                                        <td>We</td>
+                                        <td>Nós</td>
+                                    </tr>
+                                    <tr>
+                                        <td>He</td>
+                                        <td>Ele</td>
+                                    </tr>
+                                    <tr>
+                                        <td>She</td>
+                                        <td>Ela</td>
+                                    </tr>
+                                    <tr>
+                                        <td>It</td>
+                                        <td>Esta/Aquela/Etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>They</td>
+                                        <td>Eles/Elas</td>
+                                    </tr>
+                                </table>
+
+                                <h4>Verbo To Be</h4>
+                                <p>O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".</p>
+                                
+                                <table>
+                                    <tr>
+                                        <th>Pessoa</th>
+                                        <th>Conjugação</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1ª pessoa (I)</td>
+                                        <td>am</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2ª pessoa (You)</td>
+                                        <td>are</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3ª pessoa (He/She/It)</td>
+                                        <td>is</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Plural (You/We/They)</td>
+                                        <td>are</td>
+                                    </tr>
+                                </table>
+
+                                <div class="exercise">
+                                    <h4>Exercício 1: Complete as frases com a forma correta do verbo TO BE</h4>
+                                    <p>1. We ______ Brazilians.</p>
+                                    <input type="text" class="exercise-input" data-answer="are">
+                                    
+                                    <p>2. They ______ warm.</p>
+                                    <input type="text" class="exercise-input" data-answer="are">
+                                    
+                                    <p>3. I ______ happy.</p>
+                                    <input type="text" class="exercise-input" data-answer="am">
+                                    
+                                    <p>4. She ______ tall.</p>
+                                    <input type="text" class="exercise-input" data-answer="is">
+                                    
+                                    <p>5. Alex and Bruno ______ hungry.</p>
+                                    <input type="text" class="exercise-input" data-answer="are">
+                                    
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -954,8 +1121,78 @@
                             <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">85 alunos</span></span>
                         </div>
                         <div class="price">R$ 299,90</div>
-                        <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="intermediate">Saiba Mais</a>
                         <a href="#" class="btn access-btn" data-translate="course-access" data-course="intermediate">Acessar</a>
+                        <a href="#" class="btn details-btn" data-translate="course-learn-more" data-course="intermediate">Saiba Mais</a>
+                        
+                        <div class="course-details" data-course="intermediate">
+                            <h4>Conteúdo do Curso</h4>
+                            <ul class="module-list">
+                                <li><i class="fas fa-check-circle"></i> Lição 4: Verbos de Ação e Perguntas com DO</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 5: THERE e Pronomes Pessoais</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 6: CAN (habilidade/permissão)</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 7: Present Continuous</li>
+                                <li><i class="fas fa-check-circle"></i> Exercícios Avançados</li>
+                            </ul>
+                            
+                            <div class="lesson-content">
+                                <h3>Lição 4: Verbos de Ação e Perguntas com DO</h3>
+                                <p>Aprenda a usar verbos de ação e a formar perguntas com o verbo auxiliar DO.</p>
+                                
+                                <h4>Verbos de Ação</h4>
+                                <p>Verbos de ação descrevem atividades e ações. Diferentemente do verbo TO BE, eles precisam do auxiliar DO para formar perguntas.</p>
+                                
+                                <table>
+                                    <tr>
+                                        <th>Verbo</th>
+                                        <th>Passado</th>
+                                        <th>Particípio</th>
+                                        <th>Português</th>
+                                    </tr>
+                                    <tr>
+                                        <td>want</td>
+                                        <td>wanted</td>
+                                        <td>wanted</td>
+                                        <td>querer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>eat</td>
+                                        <td>ate</td>
+                                        <td>eaten</td>
+                                        <td>comer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>go</td>
+                                        <td>went</td>
+                                        <td>gone</td>
+                                        <td>ir</td>
+                                    </tr>
+                                </table>
+
+                                <h4>Perguntas com DO</h4>
+                                <p>Para verbos de ação, usamos DO/DOES para formar perguntas:</p>
+                                <p>Exemplo: Do you like coffee? (Você gosta de café?)</p>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete as perguntas com DO ou DOES</h4>
+                                    <p>1. ______ you like coffee?</p>
+                                    <input type="text" class="exercise-input" data-answer="Do">
+                                    
+                                    <p>2. ______ she want to go to the mall?</p>
+                                    <input type="text" class="exercise-input" data-answer="Does">
+                                    
+                                    <p>3. ______ they eat vegetables?</p>
+                                    <input type="text" class="exercise-input" data-answer="Do">
+                                    
+                                    <p>4. ______ he have a car?</p>
+                                    <input type="text" class="exercise-input" data-answer="Does">
+                                    
+                                    <p>5. ______ we need to buy eggs?</p>
+                                    <input type="text" class="exercise-input" data-answer="Do">
+                                    
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -971,231 +1208,11 @@
                             <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">64 alunos</span></span>
                         </div>
                         <div class="price">R$ 399,90</div>
-                        <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="advanced">Saiba Mais</a>
                         <a href="#" class="btn access-btn" data-translate="course-access" data-course="advanced">Acessar</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Course Content Tabs -->
-            <div class="tabs">
-                <div class="tab-buttons">
-                    <button class="tab-btn active" data-tab="basic" data-translate="course-basic-tab">Inglês Básico</button>
-                    <button class="tab-btn" data-tab="intermediate" data-translate="course-intermediate-tab">Inglês Intermediário</button>
-                    <button class="tab-btn" data-tab="advanced" data-translate="course-advanced-tab">Inglês Avançado</button>
-                </div>
-
-                <div class="tab-content">
-                    <!-- Basic English Content -->
-                    <div class="tab-pane active" id="basic">
-                        <div class="content-card">
-                            <h4>Conteúdo do Curso de Inglês Básico</h4>
-                            <ul class="module-list">
-                                <li><i class="fas fa-check-circle"></i> Lição 1: Pronomes e Verbo To Be</li>
-                                <li><i class="fas fa-check-circle"></i> Lição 2: Formação de Perguntas</li>
-                                <li><i class="fas fa-check-circle"></i> Lição 3: Futuro com "Going To"</li>
-                                <li><i class="fas fa-check-circle"></i> Vocabulário Essencial</li>
-                                <li><i class="fas fa-check-circle"></i> Exercícios Práticos</li>
-                            </ul>
-                        </div>
-
-                        <div class="lesson-content">
-                            <h3>Lição 1: Pronomes e Verbo To Be</h3>
-                            <p>Aprenda os pronomes pessoais e como usar o verbo to be em inglês.</p>
-                            
-                            <h4>Pronomes</h4>
-                            <table>
-                                <tr>
-                                    <th>Inglês</th>
-                                    <th>Português</th>
-                                </tr>
-                                <tr>
-                                    <td>I</td>
-                                    <td>Eu</td>
-                                </tr>
-                                <tr>
-                                    <td>You</td>
-                                    <td>Você</td>
-                                </tr>
-                                <tr>
-                                    <td>We</td>
-                                    <td>Nós</td>
-                                </tr>
-                                <tr>
-                                    <td>He</td>
-                                    <td>Ele</td>
-                                </tr>
-                                <tr>
-                                    <td>She</td>
-                                    <td>Ela</td>
-                                </tr>
-                                <tr>
-                                    <td>It</td>
-                                    <td>Esta/Aquela/Etc.</td>
-                                </tr>
-                                <tr>
-                                    <td>They</td>
-                                    <td>Eles/Elas</td>
-                                </tr>
-                            </table>
-
-                            <h4>Verbo To Be</h4>
-                            <p>O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".</p>
-                            
-                            <table>
-                                <tr>
-                                    <th>Pessoa</th>
-                                    <th>Conjugação</th>
-                                </tr>
-                                <tr>
-                                    <td>1ª pessoa (I)</td>
-                                    <td>am</td>
-                                </tr>
-                                <tr>
-                                    <td>2ª pessoa (You)</td>
-                                    <td>are</td>
-                                </tr>
-                                <tr>
-                                    <td>3ª pessoa (He/She/It)</td>
-                                    <td>is</td>
-                                </tr>
-                                <tr>
-                                    <td>Plural (You/We/They)</td>
-                                    <td>are</td>
-                                </tr>
-                            </table>
-
-                            <div class="exercise">
-                                <h4>Exercício 1: Complete as frases com a forma correta do verbo TO BE</h4>
-                                <p>1. We ______ Brazilians.</p>
-                                <input type="text" class="exercise-input" data-answer="are">
-                                
-                                <p>2. They ______ warm.</p>
-                                <input type="text" class="exercise-input" data-answer="are">
-                                
-                                <p>3. I ______ happy.</p>
-                                <input type="text" class="exercise-input" data-answer="am">
-                                
-                                <p>4. She ______ tall.</p>
-                                <input type="text" class="exercise-input" data-answer="is">
-                                
-                                <p>5. Alex and Bruno ______ hungry.</p>
-                                <input type="text" class="exercise-input" data-answer="are">
-                                
-                                <button class="submit-btn">Enviar Respostas</button>
-                            </div>
-                        </div>
-
-                        <div class="lesson-content">
-                            <h3>Libição 2: Formação de Perguntas</h3>
-                            <p>Aprenda a formar perguntas e respostas em inglês.</p>
-                            
-                            <h4>Formando Perguntas</h4>
-                            <p>Em inglês, para formar perguntas com o verbo TO BE, invertemos a posição do verbo e do sujeito.</p>
-                            
-                            <p>Exemplo:</p>
-                            <p>Afirmação: You are tall. (Você é alto)</p>
-                            <p>Pergunta: Are you tall? (Você é alto?)</p>
-                            
-                            <div class="exercise">
-                                <h4>Exercício 2: Transforme as afirmações em perguntas</h4>
-                                <p>1. He is Brazilian. → _________________________</p>
-                                <input type="text" class="exercise-input" data-answer="Is he Brazilian?">
-                                
-                                <p>2. You are happy. → _________________________</p>
-                                <input type="text" class="exercise-input" data-answer="Are you happy?">
-                                
-                                <p>3. They are warm. → _________________________</p>
-                                <input type="text" class="exercise-input" data-answer="Are they warm?">
-                                
-                                <p>4. I am tall. → _________________________</p>
-                                <input type="text" class="exercise-input" data-answer="Am I tall?">
-                                
-                                <p>5. It is hot. → _________________________</p>
-                                <input type="text" class="exercise-input" data-answer="Is it hot?">
-                                
-                                <button class="submit-btn">Enviar Respostas</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Intermediate English Content -->
-                    <div class="tab-pane" id="intermediate">
-                        <div class="content-card">
-                            <h4>Conteúdo do Curso de Inglês Intermediário</h4>
-                            <ul class="module-list">
-                                <li><i class="fas fa-check-circle"></i> Lição 4: Verbos de Ação e Perguntas com DO</li>
-                                <li><i class="fas fa-check-circle"></i> Lição 5: THERE e Pronomes Pessoais</li>
-                                <li><i class="fas fa-check-circle"></i> Lição 6: CAN (habilidade/permissão)</li>
-                                <li><i class="fas fa-check-circle"></i> Lição 7: Present Continuous</li>
-                                <li><i class="fas fa-check-circle"></i> Exercícios Avançados</li>
-                            </ul>
-                        </div>
-
-                        <div class="lesson-content">
-                            <h3>Lição 4: Verbos de Ação e Perguntas com DO</h3>
-                            <p>Aprenda a usar verbos de ação e a formar perguntas com o verbo auxiliar DO.</p>
-                            
-                            <h4>Verbos de Ação</h4>
-                            <p>Verbos de ação descrevem atividades e ações. Diferentemente do verbo TO BE, eles precisam do auxiliar DO para formar perguntas.</p>
-                            
-                            <table>
-                                <tr>
-                                    <th>Verbo</th>
-                                    <th>Passado</th>
-                                    <th>Particípio</th>
-                                    <th>Português</th>
-                                </tr>
-                                <tr>
-                                    <td>want</td>
-                                    <td>wanted</td>
-                                    <td>wanted</td>
-                                    <td>querer</td>
-                                </tr>
-                                <tr>
-                                    <td>eat</td>
-                                    <td>ate</td>
-                                    <td>eaten</td>
-                                    <td>comer</td>
-                                </tr>
-                                <tr>
-                                    <td>go</td>
-                                    <td>went</td>
-                                    <td>gone</td>
-                                    <td>ir</td>
-                                </tr>
-                            </table>
-
-                            <h4>Perguntas com DO</h4>
-                            <p>Para verbos de ação, usamos DO/DOES para formar perguntas:</p>
-                            <p>Exemplo: Do you like coffee? (Você gosta de café?)</p>
-                            
-                            <div class="exercise">
-                                <h4>Exercício: Complete as perguntas com DO ou DOES</h4>
-                                <p>1. ______ you like coffee?</p>
-                                <input type="text" class="exercise-input" data-answer="Do">
-                                
-                                <p>2. ______ she want to go to the mall?</p>
-                                <input type="text" class="exercise-input" data-answer="Does">
-                                
-                                <p>3. ______ they eat vegetables?</p>
-                                <input type="text" class="exercise-input" data-answer="Do">
-                                
-                                <p>4. ______ he have a car?</p>
-                                <input type="text" class="exercise-input" data-answer="Does">
-                                
-                                <p>5. ______ we need to buy eggs?</p>
-                                <input type="text" class="exercise-input" data-answer="Do">
-                                
-                                <button class="submit-btn">Enviar Respostas</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Advanced English Content -->
-                    <div class="tab-pane" id="advanced">
-                        <div class="content-card">
-                            <h4>Conteúdo do Curso de Inglês Avançado</h4>
+                        <a href="#" class="btn details-btn" data-translate="course-learn-more" data-course="advanced">Saiba Mais</a>
+                        
+                        <div class="course-details" data-course="advanced">
+                            <h4>Conteúdo do Curso</h4>
                             <ul class="module-list">
                                 <li><i class="fas fa-check-circle"></i> Lição 8: Terceira Pessoa e Pronomes Demonstrativos</li>
                                 <li><i class="fas fa-check-circle"></i> Lição 9: Vocabulário de Família e Expressões</li>
@@ -1203,63 +1220,63 @@
                                 <li><i class="fas fa-check-circle"></i> Estruturas Complexas</li>
                                 <li><i class="fas fa-check-circle"></i> Preparação para Conversação Fluente</li>
                             </ul>
-                        </div>
-
-                        <div class="lesson-content">
-                            <h3>Lição 8: Terceira Pessoa e Pronomes Demonstrativos</h3>
-                            <p>Aprenda as regras para a terceira pessoa singular e o uso de pronomes demonstrativos.</p>
                             
-                            <h4>Terceira Pessoa Singular</h4>
-                            <p>Na terceira pessoa singular (he, she, it), os verbos recebem -s no final no presente simples:</p>
-                            <p>Exemplo: He works at McDonald's. (Ele trabalha no McDonald's)</p>
-                            
-                            <h4>Pronomes Demonstrativos</h4>
-                            <table>
-                                <tr>
-                                    <th>Inglês</th>
-                                    <th>Português</th>
-                                    <th>Uso</th>
-                                </tr>
-                                <tr>
-                                    <td>this</td>
-                                    <td>este/esta</td>
-                                    <td>itens próximos (singular)</td>
-                                </tr>
-                                <tr>
-                                    <td>that</td>
-                                    <td>aquele/aquela</td>
-                                    <td>itens distantes (singular)</td>
-                                </tr>
-                                <tr>
-                                    <td>these</td>
-                                    <td>estes/estas</td>
-                                    <td>itens próximos (plural)</td>
-                                </tr>
-                                <tr>
-                                    <td>those</td>
-                                    <td>aqueles/aquelas</td>
-                                    <td>itens distantes (plural)</td>
-                                </tr>
-                            </table>
+                            <div class="lesson-content">
+                                <h3>Lição 8: Terceira Pessoa e Pronomes Demonstrativos</h3>
+                                <p>Aprenda as regras para a terceira pessoa singular e o uso de pronomes demonstrativos.</p>
+                                
+                                <h4>Terceira Pessoa Singular</h4>
+                                <p>Na terceira pessoa singular (he, she, it), os verbos recebem -s no final no presente simples:</p>
+                                <p>Exemplo: He works at McDonald's. (Ele trabalha no McDonald's)</p>
+                                
+                                <h4>Pronomes Demonstrativos</h4>
+                                <table>
+                                    <tr>
+                                        <th>Inglês</th>
+                                        <th>Português</th>
+                                        <th>Uso</th>
+                                    </tr>
+                                    <tr>
+                                        <td>this</td>
+                                        <td>este/esta</td>
+                                        <td>itens próximos (singular)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>that</td>
+                                        <td>aquele/aquela</td>
+                                        <td>itens distantes (singular)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>these</td>
+                                        <td>estes/estas</td>
+                                        <td>itens próximos (plural)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>those</td>
+                                        <td>aqueles/aquelas</td>
+                                        <td>itens distantes (plural)</td>
+                                    </tr>
+                                </table>
 
-                            <div class="exercise">
-                                <h4>Exercício: Complete com THIS, THAT, THESE ou THOSE</h4>
-                                <p>1. ______ man wants more food. (Este homem)</p>
-                                <input type="text" class="exercise-input" data-answer="This">
-                                
-                                <p>2. ______ chair is comfortable. (Aquela cadeira)</p>
-                                <input type="text" class="exercise-input" data-answer="That">
-                                
-                                <p>3. ______ dogs like carrots. (Estes cachorros)</p>
-                                <input type="text" class="exercise-input" data-answer="These">
-                                
-                                <p>4. ______ men are fast. (Aqueles homens)</p>
-                                <input type="text" class="exercise-input" data-answer="Those">
-                                
-                                <p>5. ______ is a good idea. (Isso)</p>
-                                <input type="text" class="exercise-input" data-answer="This">
-                                
-                                <button class="submit-btn">Enviar Respostas</button>
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com THIS, THAT, THESE ou THOSE</h4>
+                                    <p>1. ______ man wants more food. (Este homem)</p>
+                                    <input type="text" class="exercise-input" data-answer="This">
+                                    
+                                    <p>2. ______ chair is comfortable. (Aquela cadeira)</p>
+                                    <input type="text" class="exercise-input" data-answer="That">
+                                    
+                                    <p>3. ______ dogs like carrots. (Estes cachorros)</p>
+                                    <input type="text" class="exercise-input" data-answer="These">
+                                    
+                                    <p>4. ______ men are fast. (Aqueles homens)</p>
+                                    <input type="text" class="exercise-input" data-answer="Those">
+                                    
+                                    <p>5. ______ is a good idea. (Isso)</p>
+                                    <input type="text" class="exercise-input" data-answer="This">
+                                    
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1360,12 +1377,51 @@
         </div>
     </section>
 
-    <!-- Modal for Course Details -->
-    <div class="modal" id="courseModal">
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div id="modalContent"></div>
+            <h2>Cadastre-se</h2>
+            <p>Preencha os dados abaixo para criar sua conta</p>
+            
+            <form class="signup-form">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="fullName">Nome Completo</label>
+                        <input type="text" id="fullName" placeholder="Digite seu nome completo" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="phone">Telefone com DDD</label>
+                        <input type="tel" id="phone" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Crie uma senha segura" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="confirmPassword">Confirmar Senha</label>
+                        <input type="password" id="confirmPassword" placeholder="Digite novamente sua senha" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="form-submit">Cadastrar</button>
+            </form>
         </div>
     </div>
 
@@ -1771,77 +1827,84 @@
                 });
             });
             
-            // Saiba mais button functionality
-            const saibaMaisButtons = document.querySelectorAll('.saiba-mais-btn');
-            const modal = document.getElementById('courseModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            const closeModal = document.querySelector('.close-modal');
+            // Access button functionality
+            const accessButtons = document.querySelectorAll('.access-btn');
+            const detailsButtons = document.querySelectorAll('.details-btn');
             
-            saibaMaisButtons.forEach(button => {
+            accessButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const card = this.closest('.course-card');
-                    const title = card.querySelector('h3').textContent;
-                    const price = card.querySelector('.price').textContent;
+                    const courseType = this.getAttribute('data-course');
                     
-                    let detailsContent = '';
-                    if (title.includes('Básico')) {
-                        detailsContent = `
-                            <p class="price">${price}</p>
-                            <p>Este curso inclui:</p>
-                            <ul>
-                                <li>Pronomes e Verbo To Be</li>
-                                <li>Formação de Perguntas</li>
-                                <li>Futuro com "Going To"</li>
-                                <li>Vocabulário Essencial</li>
-                                <li>Exercícios Práticos</li>
-                            </ul>
-                            <button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>
-                        `;
-                    } else if (title.includes('Intermediário')) {
-                        detailsContent = `
-                            <p class="price">${price}</p>
-                            <p>Este curso inclui:</p>
-                            <ul>
-                                <li>Verbos de Ação e Perguntas com DO</li>
-                                <li>THERE e Pronomes Pessoais</li>
-                                <li>CAN (habilidade/permissão)</li>
-                                <li>Present Continuous</li>
-                                <li>Exercícios Avançados</li>
-                            </ul>
-                            <button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>
-                        `;
-                    } else if (title.includes('Avançado')) {
-                        detailsContent = `
-                            <p class="price">${price}</p>
-                            <p>Este curso inclui:</p>
-                            <ul>
-                                <li>Terceira Pessoa e Pronomes Demonstrativos</li>
-                                <li>Vocabulário de Família e Expressões</li>
-                                <li>Uso de ANY e SOME</li>
-                                <li>Estruturas Complexas</li>
-                                <li>Preparação para Conversação Fluente</li>
-                            </ul>
-                            <button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>
-                        `;
-                    }
+                    // Hide access button and show details button
+                    this.style.display = 'none';
+                    const detailsBtn = this.nextElementSibling;
+                    detailsBtn.style.display = 'block';
                     
-                    modalTitle.textContent = title;
-                    modalContent.innerHTML = detailsContent;
+                    // Show course details
+                    const courseCard = this.closest('.course-card');
+                    const courseDetails = courseCard.querySelector('.course-details');
+                    courseDetails.style.display = 'block';
                     
-                    modal.style.display = 'flex';
+                    // Scroll to course details
+                    courseDetails.scrollIntoView({behavior: 'smooth', block: 'start'});
                 });
             });
             
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
+            // Details button functionality
+            detailsButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const courseCard = this.closest('.course-card');
+                    const courseDetails = courseCard.querySelector('.course-details');
+                    
+                    // Toggle course details visibility
+                    if (courseDetails.style.display === 'block') {
+                        courseDetails.style.display = 'none';
+                    } else {
+                        courseDetails.style.display = 'block';
+                        courseDetails.scrollIntoView({behavior: 'smooth', block: 'start'});
+                    }
+                });
+            });
+            
+            // Signup modal functionality
+            const signupBtn = document.getElementById('signupBtn');
+            const signupModal = document.getElementById('signupModal');
+            const closeSignupModal = signupModal.querySelector('.close-modal');
+            
+            signupBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                signupModal.style.display = 'flex';
+            });
+            
+            closeSignupModal.addEventListener('click', function() {
+                signupModal.style.display = 'none';
             });
             
             window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
+                if (e.target === signupModal) {
+                    signupModal.style.display = 'none';
                 }
+            });
+            
+            // Signup form submission
+            const signupForm = document.querySelector('.signup-form');
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic validation
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    alert('As senhas não coincidem!');
+                    return;
+                }
+                
+                // Form submission logic would go here
+                alert('Cadastro realizado com sucesso! Em breve você receberá um e-mail de confirmação.');
+                signupModal.style.display = 'none';
             });
             
             // Tab functionality
@@ -1892,16 +1955,6 @@
                     } else {
                         alert('Algumas respostas estão incorretas. Tente novamente.');
                     }
-                });
-            });
-
-            // Access button functionality
-            const accessButtons = document.querySelectorAll('.access-btn');
-            accessButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const courseType = this.getAttribute('data-course');
-                    alert(`Acessando o curso de Inglês ${courseType === 'basic' ? 'Básico' : courseType === 'intermediate' ? 'Intermediário' : 'Avançado'}`);
                 });
             });
         });
