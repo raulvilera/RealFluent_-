@@ -665,19 +665,135 @@
             cursor: pointer;
             color: var(--text-light);
         }
+
+        /* Exercise Styles */
+        .exercise {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .exercise h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .exercise-input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
+        }
+
+        /* Lesson Content Styles */
+        .lesson-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+        }
+
+        .lesson-content h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .lesson-content p {
+            margin-bottom: 15px;
+        }
+
+        .lesson-content ul, .lesson-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .lesson-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .lesson-content table, .lesson-content th, .lesson-content td {
+            border: 1px solid #ddd;
+        }
+
+        .lesson-content th, .lesson-content td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .lesson-content th {
+            background-color: #f2f2f2;
+        }
+
+        /* Tabs for Course Content */
+        .tabs {
+            margin-top: 30px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: var(--hover-effect);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .tab-content {
+            padding: 20px 0;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <!-- Language Toggle -->
     <div class="language-toggle">
-        <button class="lang-btn active">PT</button>
-        <button class="lang-btn">EN</button>
+        <button class="lang-btn active" id="ptBtn">PT</button>
+        <button class="lang-btn" id="enBtn">EN</button>
     </div>
 
     <!-- Video Player (Wondershare Integration) -->
     <div class="video-player">
         <div class="video-header">
-            <h3>Aula ao Vivo</h3>
+            <h3 data-translate="live-class">Aula ao Vivo</h3>
             <button class="video-close"><i class="fas fa-times"></i></button>
         </div>
         <div class="video-content">
@@ -688,14 +804,14 @@
     </div>
 
     <!-- Demo Admin Button -->
-    <button class="demo-admin-btn" id="demoAdminBtn">Área do Professor</button>
+    <button class="demo-admin-btn" id="demoAdminBtn" data-translate="teacher-area">Área do Professor</button>
 
     <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                <span>English Hub</span>
+                <span data-translate="site-name">English Hub</span>
             </div>
 
             <button class="mobile-menu-btn">
@@ -704,17 +820,17 @@
 
             <nav>
                 <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#courses">Cursos</a></li>
-                    <li><a href="#features">Recursos</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="#home" data-translate="nav-home">Início</a></li>
+                    <li><a href="#courses" data-translate="nav-courses">Cursos</a></li>
+                    <li><a href="#features" data-translate="nav-features">Recursos</a></li>
+                    <li><a href="#about" data-translate="nav-about">Sobre</a></li>
+                    <li><a href="#contact" data-translate="nav-contact">Contato</a></li>
                 </ul>
             </nav>
 
             <div class="auth-buttons">
-                <a href="#login" class="btn btn-outline">Entrar</a>
-                <a href="#signup" class="btn btn-primary">Cadastrar</a>
+                <a href="#login" class="btn btn-outline" data-translate="nav-login">Entrar</a>
+                <a href="#signup" class="btn btn-primary" data-translate="nav-signup">Cadastrar</a>
             </div>
         </div>
     </header>
@@ -724,23 +840,23 @@
         <div class="carousel-slides">
             <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1351&q=80');">
                 <div class="slide-content">
-                    <h1>Aprenda Inglês de Forma Moderna e Eficiente</h1>
-                    <p>Nossa plataforma oferece cursos de inglês com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.</p>
-                    <a href="#courses" class="btn btn-primary">Explorar Cursos</a>
+                    <h1 data-translate="hero-title-1">Aprenda Inglês de Forma Moderna e Eficiente</h1>
+                    <p data-translate="hero-desc-1">Nossa plataforma oferece cursos de inglês com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.</p>
+                    <a href="#courses" class="btn btn-primary" data-translate="hero-cta-1">Explorar Cursos</a>
                 </div>
             </div>
             <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
                 <div class="slide-content">
-                    <h1>Metodologia Inovadora</h1>
-                    <p>Utilizamos as mais modernas técnicas de ensino para garantir que você atinja a fluência no idioma inglês.</p>
-                    <a href="#courses" class="btn btn-primary">Conhecer Métodos</a>
+                    <h1 data-translate="hero-title-2">Metodologia Inovadora</h1>
+                    <p data-translate="hero-desc-2">Utilizamos as mais modernas técnicas de ensino para garantir que você atinja a fluência no idioma inglês.</p>
+                    <a href="#courses" class="btn btn-primary" data-translate="hero-cta-2">Conhecer Métodos</a>
                 </div>
             </div>
             <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
                 <div class="slide-content">
-                    <h1>Professores Qualificados</h1>
-                    <p>Nossa equipe de professores é altamente capacitada e experiente no ensino de inglês para estrangeiros.</p>
-                    <a href="#courses" class="btn btn-primary">Ver Corpo Docente</a>
+                    <h1 data-translate="hero-title-3">Professores Qualificados</h1>
+                    <p data-translate="hero-desc-3">Nossa equipe de professores é altamente capacitada e experiente no ensino de inglês para estrangeiros.</p>
+                    <a href="#courses" class="btn btn-primary" data-translate="hero-cta-3">Ver Corpo Docente</a>
                 </div>
             </div>
         </div>
@@ -759,8 +875,8 @@
     <section class="courses" id="courses">
         <div class="container">
             <div class="section-title">
-                <h2>Nossos Cursos</h2>
-                <p>Escolha entre uma variedade de cursos de inglês para todos os níveis</p>
+                <h2 data-translate="courses-title">Nossos Cursos</h2>
+                <p data-translate="courses-desc">Escolha entre uma variedade de cursos de inglês para todos os níveis</p>
             </div>
 
             <div class="courses-grid">
@@ -769,23 +885,23 @@
                         <i class="fas fa-book-open"></i>
                     </div>
                     <div class="course-content">
-                        <h3>Inglês Básico</h3>
-                        <p>Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.</p>
+                        <h3 data-translate="course-basic">Inglês Básico</h3>
+                        <p data-translate="course-basic-desc">Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 40 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 120 alunos</span>
+                            <span><i class="far fa-clock"></i> <span data-translate="course-hours">40 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">120 alunos</span></span>
                         </div>
                         <div class="price">R$ 199,90</div>
                         <div class="course-details">
-                            <p>Este curso inclui:</p>
+                            <p data-translate="course-includes">Este curso inclui:</p>
                             <ul>
-                                <li>Gramática básica</li>
-                                <li>Vocabulário essencial</li>
-                                <li>Expressões do dia a dia</li>
-                                <li>Exercícios práticos</li>
+                                <li data-translate="course-basic-item1">Gramática básica</li>
+                                <li data-translate="course-basic-item2">Vocabulário essencial</li>
+                                <li data-translate="course-basic-item3">Expressões do dia a dia</li>
+                                <li data-translate="course-basic-item4">Exercícios práticos</li>
                             </ul>
                         </div>
-                        <a href="#" class="btn btn-primary saiba-mais-btn">Saiba Mais</a>
+                        <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="basic">Saiba Mais</a>
                     </div>
                 </div>
 
@@ -794,23 +910,23 @@
                         <i class="fas fa-language"></i>
                     </div>
                     <div class="course-content">
-                        <h3>Inglês Intermediário</h3>
-                        <p>Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
+                        <h3 data-translate="course-intermediate">Inglês Intermediário</h3>
+                        <p data-translate="course-intermediate-desc">Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 60 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 85 alunos</span>
+                            <span><i class="far fa-clock"></i> <span data-translate="course-hours">60 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">85 alunos</span></span>
                         </div>
                         <div class="price">R$ 299,90</div>
                         <div class="course-details">
-                            <p>Este curso inclui:</p>
+                            <p data-translate="course-includes">Este curso inclui:</p>
                             <ul>
-                                <li>Gramática intermediária</li>
-                                <li>Conversação fluente</li>
-                                <li>Leitura e interpretação de textos</li>
-                                <li>Exercícios avançados</li>
+                                <li data-translate="course-intermediate-item1">Gramática intermediária</li>
+                                <li data-translate="course-intermediate-item2">Conversação fluente</li>
+                                <li data-translate="course-intermediate-item3">Leitura e interpretação de textos</li>
+                                <li data-translate="course-intermediate-item4">Exercícios avançados</li>
                             </ul>
                         </div>
-                        <a href="#" class="btn btn-primary saiba-mais-btn">Saiba Mais</a>
+                        <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="intermediate">Saiba Mais</a>
                     </div>
                 </div>
 
@@ -819,23 +935,279 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="course-content">
-                        <h3>Inglês Avançado</h3>
-                        <p>Perfeito para quem busca fluência e domínio completo do idioma.</p>
+                        <h3 data-translate="course-advanced">Inglês Avançado</h3>
+                        <p data-translate="course-advanced-desc">Perfeito para quem busca fluência e domínio completo do idioma.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 80 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 64 alunos</span>
+                            <span><i class="far fa-clock"></i> <span data-translate="course-hours">80 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">64 alunos</span></span>
                         </div>
                         <div class="price">R$ 399,90</div>
                         <div class="course-details">
-                            <p>Este curso inclui:</p>
+                            <p data-translate="course-includes">Este curso inclui:</p>
                             <ul>
-                                <li>Gramática avançada</li>
-                                <li>Conversação fluente</li>
-                                <li>Preparação para exames internacionais</li>
-                                <li>Prática de negócios em inglês</li>
+                                <li data-translate="course-advanced-item1">Gramática avançada</li>
+                                <li data-translate="course-advanced-item2">Conversação fluente</li>
+                                <li data-translate="course-advanced-item3">Preparação para exames internacionais</li>
+                                <li data-translate="course-advanced-item4">Prática de negócios em inglês</li>
                             </ul>
                         </div>
-                        <a href="#" class="btn btn-primary saiba-mais-btn">Saiba Mais</a>
+                        <a href="#" class="btn btn-primary saiba-mais-btn" data-translate="course-learn-more" data-course="advanced">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Content Tabs -->
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="basic" data-translate="course-basic-tab">Inglês Básico</button>
+                    <button class="tab-btn" data-tab="intermediate" data-translate="course-intermediate-tab">Inglês Intermediário</button>
+                    <button class="tab-btn" data-tab="advanced" data-translate="course-advanced-tab">Inglês Avançado</button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Basic English Content -->
+                    <div class="tab-pane active" id="basic">
+                        <div class="lesson-content">
+                            <h3 data-translate="lesson-1">Lição 1: Pronomes e Verbo To Be</h3>
+                            <p data-translate="lesson-1-desc">Aprenda os pronomes pessoais e como usar o verbo to be em inglês.</p>
+                            
+                            <h4 data-translate="pronouns-title">Pronomes</h4>
+                            <table>
+                                <tr>
+                                    <th data-translate="english">Inglês</th>
+                                    <th data-translate="portuguese">Português</th>
+                                </tr>
+                                <tr>
+                                    <td>I</td>
+                                    <td data-translate="pronoun-i">Eu</td>
+                                </tr>
+                                <tr>
+                                    <td>You</td>
+                                    <td data-translate="pronoun-you">Você</td>
+                                </tr>
+                                <tr>
+                                    <td>We</td>
+                                    <td data-translate="pronoun-we">Nós</td>
+                                </tr>
+                                <tr>
+                                    <td>He</td>
+                                    <td data-translate="pronoun-he">Ele</td>
+                                </tr>
+                                <tr>
+                                    <td>She</td>
+                                    <td data-translate="pronoun-she">Ela</td>
+                                </tr>
+                                <tr>
+                                    <td>It</td>
+                                    <td data-translate="pronoun-it">Esta/Aquela/Etc.</td>
+                                </tr>
+                                <tr>
+                                    <td>They</td>
+                                    <td data-translate="pronoun-they">Eles/Elas</td>
+                                </tr>
+                            </table>
+
+                            <h4 data-translate="verb-to-be">Verbo To Be</h4>
+                            <p data-translate="verb-to-be-desc">O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".</p>
+                            
+                            <table>
+                                <tr>
+                                    <th data-translate="person">Pessoa</th>
+                                    <th data-translate="conjugation">Conjugação</th>
+                                </tr>
+                                <tr>
+                                    <td data-translate="1st-person">1ª pessoa (I)</td>
+                                    <td>am</td>
+                                </tr>
+                                <tr>
+                                    <td data-translate="2nd-person">2ª pessoa (You)</td>
+                                    <td>are</td>
+                                </tr>
+                                <tr>
+                                    <td data-translate="3rd-person">3ª pessoa (He/She/It)</td>
+                                    <td>is</td>
+                                </tr>
+                                <tr>
+                                    <td data-translate="plural-you">Plural (You/We/They)</td>
+                                    <td>are</td>
+                                </tr>
+                            </table>
+
+                            <div class="exercise">
+                                <h4 data-translate="exercise-1">Exercício 1: Complete as frases com a forma correta do verbo TO BE</h4>
+                                <p>1. We ______ Brazilians.</p>
+                                <input type="text" class="exercise-input" data-answer="are">
+                                
+                                <p>2. They ______ warm.</p>
+                                <input type="text" class="exercise-input" data-answer="are">
+                                
+                                <p>3. I ______ happy.</p>
+                                <input type="text" class="exercise-input" data-answer="am">
+                                
+                                <p>4. She ______ tall.</p>
+                                <input type="text" class="exercise-input" data-answer="is">
+                                
+                                <p>5. Alex and Bruno ______ hungry.</p>
+                                <input type="text" class="exercise-input" data-answer="are">
+                                
+                                <button class="submit-btn" data-translate="submit-answers">Enviar Respostas</button>
+                            </div>
+                        </div>
+
+                        <div class="lesson-content">
+                            <h3 data-translate="lesson-2">Lição 2: Perguntas e Respostas</h3>
+                            <p data-translate="lesson-2-desc">Aprenda a formar perguntas e respostas em inglês.</p>
+                            
+                            <h4 data-translate="questions-title">Formando Perguntas</h4>
+                            <p data-translate="questions-desc">Em inglês, para formar perguntas com o verbo TO BE, invertemos a posição do verbo e do sujeito.</p>
+                            
+                            <p data-translate="example">Exemplo:</p>
+                            <p data-translate="statement">Afirmação: You are tall. (Você é alto)</p>
+                            <p data-translate="question">Pergunta: Are you tall? (Você é alto?)</p>
+                            
+                            <div class="exercise">
+                                <h4 data-translate="exercise-2">Exercício 2: Transforme as afirmações em perguntas</h4>
+                                <p>1. He is Brazilian. → _________________________</p>
+                                <input type="text" class="exercise-input" data-answer="Is he Brazilian?">
+                                
+                                <p>2. You are happy. → _________________________</p>
+                                <input type="text" class="exercise-input" data-answer="Are you happy?">
+                                
+                                <p>3. They are warm. → _________________________</p>
+                                <input type="text" class="exercise-input" data-answer="Are they warm?">
+                                
+                                <p>4. I am tall. → _________________________</p>
+                                <input type="text" class="exercise-input" data-answer="Am I tall?">
+                                
+                                <p>5. It is hot. → _________________________</p>
+                                <input type="text" class="exercise-input" data-answer="Is it hot?">
+                                
+                                <button class="submit-btn" data-translate="submit-answers">Enviar Respostas</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intermediate English Content -->
+                    <div class="tab-pane" id="intermediate">
+                        <div class="lesson-content">
+                            <h3>Lição 4: Verbos de Ação e Perguntas com DO</h3>
+                            <p>Aprenda a usar verbos de ação e a formar perguntas com o verbo auxiliar DO.</p>
+                            
+                            <h4>Verbos de Ação</h4>
+                            <p>Verbos de ação descrevem atividades e ações. Diferentemente do verbo TO BE, eles precisam do auxiliar DO para formar perguntas.</p>
+                            
+                            <table>
+                                <tr>
+                                    <th>Verbo</th>
+                                    <th>Passado</th>
+                                    <th>Particípio</th>
+                                    <th>Português</th>
+                                </tr>
+                                <tr>
+                                    <td>want</td>
+                                    <td>wanted</td>
+                                    <td>wanted</td>
+                                    <td>querer</td>
+                                </tr>
+                                <tr>
+                                    <td>eat</td>
+                                    <td>ate</td>
+                                    <td>eaten</td>
+                                    <td>comer</td>
+                                </tr>
+                                <tr>
+                                    <td>go</td>
+                                    <td>went</td>
+                                    <td>gone</td>
+                                    <td>ir</td>
+                                </tr>
+                            </table>
+
+                            <h4>Perguntas com DO</h4>
+                            <p>Para verbos de ação, usamos DO/DOES para formar perguntas:</p>
+                            <p>Exemplo: Do you like coffee? (Você gosta de café?)</p>
+                            
+                            <div class="exercise">
+                                <h4>Exercício: Complete as perguntas com DO ou DOES</h4>
+                                <p>1. ______ you like coffee?</p>
+                                <input type="text" class="exercise-input" data-answer="Do">
+                                
+                                <p>2. ______ she want to go to the mall?</p>
+                                <input type="text" class="exercise-input" data-answer="Does">
+                                
+                                <p>3. ______ they eat vegetables?</p>
+                                <input type="text" class="exercise-input" data-answer="Do">
+                                
+                                <p>4. ______ he have a car?</p>
+                                <input type="text" class="exercise-input" data-answer="Does">
+                                
+                                <p>5. ______ we need to buy eggs?</p>
+                                <input type="text" class="exercise-input" data-answer="Do">
+                                
+                                <button class="submit-btn">Enviar Respostas</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced English Content -->
+                    <div class="tab-pane" id="advanced">
+                        <div class="lesson-content">
+                            <h3>Lição 8: Terceira Pessoa e Pronomes Demonstrativos</h3>
+                            <p>Aprenda as regras para a terceira pessoa singular e o uso de pronomes demonstrativos.</p>
+                            
+                            <h4>Terceira Pessoa Singular</h4>
+                            <p>Na terceira pessoa singular (he, she, it), os verbos recebem -s no final no presente simples:</p>
+                            <p>Exemplo: He works at McDonald's. (Ele trabalha no McDonald's)</p>
+                            
+                            <h4>Pronomes Demonstrativos</h4>
+                            <table>
+                                <tr>
+                                    <th>Inglês</th>
+                                    <th>Português</th>
+                                    <th>Uso</th>
+                                </tr>
+                                <tr>
+                                    <td>this</td>
+                                    <td>este/esta</td>
+                                    <td>itens próximos (singular)</td>
+                                </tr>
+                                <tr>
+                                    <td>that</td>
+                                    <td>aquele/aquela</td>
+                                    <td>itens distantes (singular)</td>
+                                </tr>
+                                <tr>
+                                    <td>these</td>
+                                    <td>estes/estas</td>
+                                    <td>itens próximos (plural)</td>
+                                </tr>
+                                <tr>
+                                    <td>those</td>
+                                    <td>aqueles/aquelas</td>
+                                    <td>itens distantes (plural)</td>
+                                </tr>
+                            </table>
+
+                            <div class="exercise">
+                                <h4>Exercício: Complete com THIS, THAT, THESE ou THOSE</h4>
+                                <p>1. ______ man wants more food. (Este homem)</p>
+                                <input type="text" class="exercise-input" data-answer="This">
+                                
+                                <p>2. ______ chair is comfortable. (Aquela cadeira)</p>
+                                <input type="text" class="exercise-input" data-answer="That">
+                                
+                                <p>3. ______ dogs like carrots. (Estes cachorros)</p>
+                                <input type="text" class="exercise-input" data-answer="These">
+                                
+                                <p>4. ______ men are fast. (Aqueles homens)</p>
+                                <input type="text" class="exercise-input" data-answer="Those">
+                                
+                                <p>5. ______ is a good idea. (Isso)</p>
+                                <input type="text" class="exercise-input" data-answer="This">
+                                
+                                <button class="submit-btn">Enviar Respostas</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -846,8 +1218,8 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Recursos da Plataforma</h2>
-                <p>Descubra como nossa plataforma pode transformar sua experiência de aprendizado de inglês</p>
+                <h2 data-translate="features-title">Recursos da Plataforma</h2>
+                <p data-translate="features-desc">Descubra como nossa plataforma pode transformar sua experiência de aprendizado de inglês</p>
             </div>
 
             <div class="features-grid">
@@ -855,48 +1227,48 @@
                     <div class="feature-icon">
                         <i class="fas fa-upload"></i>
                     </div>
-                    <h3>Upload de Materiais</h3>
-                    <p>Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.</p>
+                    <h3 data-translate="feature-1-title">Upload de Materiais</h3>
+                    <p data-translate="feature-1-desc">Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3>Videoaulas Integradas</h3>
-                    <p>Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.</p>
+                    <h3 data-translate="feature-2-title">Videoaulas Integradas</h3>
+                    <p data-translate="feature-2-desc">Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <h3>Sistema de Pagamento</h3>
-                    <p>Processamento seguro de pagamentos com emissão automática de nota fiscal.</p>
+                    <h3 data-translate="feature-3-title">Sistema de Pagamento</h3>
+                    <p data-translate="feature-3-desc">Processamento seguro de pagamentos com emissão automática de nota fiscal.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Design Responsivo</h3>
-                    <p>Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.</p>
+                    <h3 data-translate="feature-4-title">Design Responsivo</h3>
+                    <p data-translate="feature-4-desc">Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <h3>Área do Professor</h3>
-                    <p>Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.</p>
+                    <h3 data-translate="feature-5-title">Área do Professor</h3>
+                    <p data-translate="feature-5-desc">Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-fire"></i>
                     </div>
-                    <h3>Integração Firebase</h3>
-                    <p>Armazenamento seguro e autenticação através do Firebase do Google.</p>
+                    <h3 data-translate="feature-6-title">Integração Firebase</h3>
+                    <p data-translate="feature-6-desc">Armazenamento seguro e autenticação através do Firebase do Google.</p>
                 </div>
             </div>
         </div>
@@ -948,8 +1320,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>English Learning Hub</h3>
-                    <p>Plataforma moderna de ensino de inglês com tecnologia de ponta e recursos inovadores.</p>
+                    <h3 data-translate="footer-title">English Learning Hub</h3>
+                    <p data-translate="footer-desc">Plataforma moderna de ensino de inglês com tecnologia de ponta e recursos inovadores.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -959,46 +1331,259 @@
                 </div>
 
                 <div class="footer-column">
-                    <h3>Links Rápidos</h3>
+                    <h3 data-translate="footer-links">Links Rápidos</h3>
                     <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#courses">Cursos</a></li>
-                        <li><a href="#features">Recursos</a></li>
-                        <li><a href="#about">Sobre Nós</a></li>
-                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#home" data-translate="nav-home">Início</a></li>
+                        <li><a href="#courses" data-translate="nav-courses">Cursos</a></li>
+                        <li><a href="#features" data-translate="nav-features">Recursos</a></li>
+                        <li><a href="#about" data-translate="nav-about">Sobre Nós</a></li>
+                        <li><a href="#contact" data-translate="nav-contact">Contato</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h3>Cursos</h3>
+                    <h3 data-translate="footer-courses">Cursos</h3>
                     <ul>
-                        <li><a href="#">Inglês Básico</a></li>
-                        <li><a href="#">Inglês Intermediário</a></li>
-                        <li><a href="#">Inglês Avançado</a></li>
-                        <li><a href="#">Inglês para Negócios</a></li>
-                        <li><a href="#">Preparação para TOEFL/IELTS</a></li>
+                        <li><a href="#" data-translate="course-basic">Inglês Básico</a></li>
+                        <li><a href="#" data-translate="course-intermediate">Inglês Intermediário</a></li>
+                        <li><a href="#" data-translate="course-advanced">Inglês Avançado</a></li>
+                        <li><a href="#" data-translate="course-business">Inglês para Negócios</a></li>
+                        <li><a href="#" data-translate="course-exam">Preparação para TOEFL/IELTS</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h3>Contato</h3>
+                    <h3 data-translate="footer-contact">Contato</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo</li>
-                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
-                        <li><i class="fas fa-envelope"></i> contato@englishhub.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-translate="footer-address">Av. Paulista, 1000, São Paulo</span></li>
+                        <li><i class="fas fa-phone"></i> <span data-translate="footer-phone">(11) 9999-9999</span></li>
+                        <li><i class="fas fa-envelope"></i> <span data-translate="footer-email">contato@englishhub.com</span></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2023 English Learning Hub. Todos os direitos reservados.</p>
+                <p>&copy; 2023 English Learning Hub. <span data-translate="footer-rights">Todos os direitos reservados.</span></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Translations object
+        const translations = {
+            'pt': {
+                'site-name': 'English Hub',
+                'teacher-area': 'Área do Professor',
+                'live-class': 'Aula ao Vivo',
+                'nav-home': 'Início',
+                'nav-courses': 'Cursos',
+                'nav-features': 'Recursos',
+                'nav-about': 'Sobre',
+                'nav-contact': 'Contato',
+                'nav-login': 'Entrar',
+                'nav-signup': 'Cadastrar',
+                'hero-title-1': 'Aprenda Inglês de Forma Moderna e Eficiente',
+                'hero-desc-1': 'Nossa plataforma oferece cursos de inglês com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.',
+                'hero-cta-1': 'Explorar Cursos',
+                'hero-title-2': 'Metodologia Inovadora',
+                'hero-desc-2': 'Utilizamos as mais modernas técnicas de ensino para garantir que você atinja a fluência no idioma inglês.',
+                'hero-cta-2': 'Conhecer Métodos',
+                'hero-title-3': 'Professores Qualificados',
+                'hero-desc-3': 'Nossa equipe de professores é altamente capacitada e experiente no ensino de inglês para estrangeiros.',
+                'hero-cta-3': 'Ver Corpo Docente',
+                'courses-title': 'Nossos Cursos',
+                'courses-desc': 'Escolha entre uma variedade de cursos de inglês para todos os níveis',
+                'course-basic': 'Inglês Básico',
+                'course-basic-desc': 'Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.',
+                'course-hours': '40 horas',
+                'course-students': '120 alunos',
+                'course-includes': 'Este curso inclui:',
+                'course-basic-item1': 'Gramática básica',
+                'course-basic-item2': 'Vocabulário essencial',
+                'course-basic-item3': 'Expressões do dia a dia',
+                'course-basic-item4': 'Exercícios práticos',
+                'course-learn-more': 'Saiba Mais',
+                'course-intermediate': 'Inglês Intermediário',
+                'course-intermediate-desc': 'Para quem já tem conhecimentos básicos e quer avançar no aprendizado.',
+                'course-intermediate-item1': 'Gramática intermediária',
+                'course-intermediate-item2': 'Conversação fluente',
+                'course-intermediate-item3': 'Leitura e interpretação de textos',
+                'course-intermediate-item4': 'Exercícios avançados',
+                'course-advanced': 'Inglês Avançado',
+                'course-advanced-desc': 'Perfeito para quem busca fluência e domínio completo do idioma.',
+                'course-advanced-item1': 'Gramática avançada',
+                'course-advanced-item2': 'Conversação fluente',
+                'course-advanced-item3': 'Preparação para exames internacionais',
+                'course-advanced-item4': 'Prática de negócios em inglês',
+                'course-basic-tab': 'Inglês Básico',
+                'course-intermediate-tab': 'Inglês Intermediário',
+                'course-advanced-tab': 'Inglês Avançado',
+                'lesson-1': 'Lição 1: Pronomes e Verbo To Be',
+                'lesson-1-desc': 'Aprenda os pronomes pessoais e como usar o verbo to be em inglês.',
+                'pronouns-title': 'Pronomes',
+                'english': 'Inglês',
+                'portuguese': 'Português',
+                'pronoun-i': 'Eu',
+                'pronoun-you': 'Você',
+                'pronoun-we': 'Nós',
+                'pronoun-he': 'Ele',
+                'pronoun-she': 'Ela',
+                'pronoun-it': 'Esta/Aquela/Etc.',
+                'pronoun-they': 'Eles/Elas',
+                'verb-to-be': 'Verbo To Be',
+                'verb-to-be-desc': 'O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".',
+                'person': 'Pessoa',
+                'conjugation': 'Conjugação',
+                '1st-person': '1ª pessoa (I)',
+                '2nd-person': '2ª pessoa (You)',
+                '3rd-person': '3ª pessoa (He/She/It)',
+                'plural-you': 'Plural (You/We/They)',
+                'exercise-1': 'Exercício 1: Complete as frases com a forma correta do verbo TO BE',
+                'submit-answers': 'Enviar Respostas',
+                'lesson-2': 'Lição 2: Perguntas e Respostas',
+                'lesson-2-desc': 'Aprenda a formar perguntas e respostas em inglês.',
+                'questions-title': 'Formando Perguntas',
+                'questions-desc': 'Em inglês, para formar perguntas com o verbo TO BE, invertemos a posição do verbo e do sujeito.',
+                'example': 'Exemplo:',
+                'statement': 'Afirmação: You are tall. (Você é alto)',
+                'question': 'Pergunta: Are you tall? (Você é alto?)',
+                'exercise-2': 'Exercício 2: Transforme as afirmações em perguntas',
+                'features-title': 'Recursos da Plataforma',
+                'features-desc': 'Descubra como nossa plataforma pode transformar sua experiência de aprendizado de inglês',
+                'feature-1-title': 'Upload de Materiais',
+                'feature-1-desc': 'Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.',
+                'feature-2-title': 'Videoaulas Integradas',
+                'feature-2-desc': 'Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.',
+                'feature-3-title': 'Sistema de Pagamento',
+                'feature-3-desc': 'Processamento seguro de pagamentos com emissão automática de nota fiscal.',
+                'feature-4-title': 'Design Responsivo',
+                'feature-4-desc': 'Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.',
+                'feature-5-title': 'Área do Professor',
+                'feature-5-desc': 'Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.',
+                'feature-6-title': 'Integração Firebase',
+                'feature-6-desc': 'Armazenamento seguro e autenticação através do Firebase do Google.',
+                'footer-title': 'English Learning Hub',
+                'footer-desc': 'Plataforma moderna de ensino de inglês com tecnologia de ponta e recursos inovadores.',
+                'footer-links': 'Links Rápidos',
+                'footer-courses': 'Cursos',
+                'footer-contact': 'Contato',
+                'footer-address': 'Av. Paulista, 1000, São Paulo',
+                'footer-phone': '(11) 9999-9999',
+                'footer-email': 'contato@englishhub.com',
+                'footer-rights': 'Todos os direitos reservados.',
+                'course-business': 'Inglês para Negócios',
+                'course-exam': 'Preparação para TOEFL/IELTS'
+            },
+            'en': {
+                'site-name': 'English Hub',
+                'teacher-area': 'Teacher Area',
+                'live-class': 'Live Class',
+                'nav-home': 'Home',
+                'nav-courses': 'Courses',
+                'nav-features': 'Features',
+                'nav-about': 'About',
+                'nav-contact': 'Contact',
+                'nav-login': 'Login',
+                'nav-signup': 'Sign Up',
+                'hero-title-1': 'Learn English in a Modern and Effective Way',
+                'hero-desc-1': 'Our platform offers English courses with cutting-edge technology, diverse materials and complete support for your learning.',
+                'hero-cta-1': 'Explore Courses',
+                'hero-title-2': 'Innovative Methodology',
+                'hero-desc-2': 'We use the most modern teaching techniques to ensure you achieve fluency in English.',
+                'hero-cta-2': 'Learn About Methods',
+                'hero-title-3': 'Qualified Teachers',
+                'hero-desc-3': 'Our team of teachers is highly qualified and experienced in teaching English to foreigners.',
+                'hero-cta-3': 'See Teaching Staff',
+                'courses-title': 'Our Courses',
+                'courses-desc': 'Choose from a variety of English courses for all levels',
+                'course-basic': 'Basic English',
+                'course-basic-desc': 'Ideal course for beginners who want to learn the foundation of the English language.',
+                'course-hours': '40 hours',
+                'course-students': '120 students',
+                'course-includes': 'This course includes:',
+                'course-basic-item1': 'Basic grammar',
+                'course-basic-item2': 'Essential vocabulary',
+                'course-basic-item3': 'Everyday expressions',
+                'course-basic-item4': 'Practical exercises',
+                'course-learn-more': 'Learn More',
+                'course-intermediate': 'Intermediate English',
+                'course-intermediate-desc': 'For those who already have basic knowledge and want to advance their learning.',
+                'course-intermediate-item1': 'Intermediate grammar',
+                'course-intermediate-item2': 'Fluent conversation',
+                'course-intermediate-item3': 'Reading and text interpretation',
+                'course-intermediate-item4': 'Advanced exercises',
+                'course-advanced': 'Advanced English',
+                'course-advanced-desc': 'Perfect for those seeking fluency and complete mastery of the language.',
+                'course-advanced-item1': 'Advanced grammar',
+                'course-advanced-item2': 'Fluent conversation',
+                'course-advanced-item3': 'Preparation for international exams',
+                'course-advanced-item4': 'Business English practice',
+                'course-basic-tab': 'Basic English',
+                'course-intermediate-tab': 'Intermediate English',
+                'course-advanced-tab': 'Advanced English',
+                'lesson-1': 'Lesson 1: Pronouns and Verb To Be',
+                'lesson-1-desc': 'Learn personal pronouns and how to use the verb to be in English.',
+                'pronouns-title': 'Pronouns',
+                'english': 'English',
+                'portuguese': 'Portuguese',
+                'pronoun-i': 'I',
+                'pronoun-you': 'You',
+                'pronoun-we': 'We',
+                'pronoun-he': 'He',
+                'pronoun-she': 'She',
+                'pronoun-it': 'This/That/Etc.',
+                'pronoun-they': 'They',
+                'verb-to-be': 'Verb To Be',
+                'verb-to-be-desc': 'The verb to be is one of the most important verbs in English and means "ser" or "estar".',
+                'person': 'Person',
+                'conjugation': 'Conjugation',
+                '1st-person': '1st person (I)',
+                '2nd-person': '2nd person (You)',
+                '3rd-person': '3rd person (He/She/It)',
+                'plural-you': 'Plural (You/We/They)',
+                'exercise-1': 'Exercise 1: Complete the sentences with the correct form of the verb TO BE',
+                'submit-answers': 'Submit Answers',
+                'lesson-2': 'Lesson 2: Questions and Answers',
+                'lesson-2-desc': 'Learn how to form questions and answers in English.',
+                'questions-title': 'Forming Questions',
+                'questions-desc': 'In English, to form questions with the verb TO BE, we invert the position of the verb and the subject.',
+                'example': 'Example:',
+                'statement': 'Statement: You are tall.',
+                'question': 'Question: Are you tall?',
+                'exercise-2': 'Exercise 2: Turn the statements into questions',
+                'features-title': 'Platform Features',
+                'features-desc': 'Discover how our platform can transform your English learning experience',
+                'feature-1-title': 'Material Upload',
+                'feature-1-desc': 'Teachers can upload materials in various formats: PDF, PPT, Word and more.',
+                'feature-2-title': 'Integrated Video Lessons',
+                'feature-2-desc': 'Recording and integration of video lessons with Wondershare, available on all devices.',
+                'feature-3-title': 'Payment System',
+                'feature-3-desc': 'Secure payment processing with automatic invoice issuance.',
+                'feature-4-title': 'Responsive Design',
+                'feature-4-desc': 'Fully responsive platform that adapts to computers, tablets and smartphones.',
+                'feature-5-title': 'Teacher Area',
+                'feature-5-desc': 'Exclusive panel for teachers to manage courses, materials and monitor students.',
+                'feature-6-title': 'Firebase Integration',
+                'feature-6-desc': 'Secure storage and authentication through Google Firebase.',
+                'footer-title': 'English Learning Hub',
+                'footer-desc': 'Modern English teaching platform with cutting-edge technology and innovative resources.',
+                'footer-links': 'Quick Links',
+                'footer-courses': 'Courses',
+                'footer-contact': 'Contact',
+                'footer-address': 'Paulista Ave, 1000, São Paulo',
+                'footer-phone': '+55 (11) 9999-9999',
+                'footer-email': 'contact@englishhub.com',
+                'footer-rights': 'All rights reserved.',
+                'course-business': 'Business English',
+                'course-exam': 'TOEFL/IELTS Preparation'
+            }
+        };
+
         // Demo functionality for the platform
         document.addEventListener('DOMContentLoaded', function() {
+            // Set initial language
+            let currentLang = 'pt';
+            
             // Carousel functionality
             const slides = document.querySelector('.carousel-slides');
             const slideItems = document.querySelectorAll('.carousel-slide');
@@ -1061,14 +1646,37 @@
             startAutoSlide();
             
             // Language toggle
-            const langButtons = document.querySelectorAll('.lang-btn');
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    langButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    // Here you would typically update the page content to the selected language
-                });
+            const ptBtn = document.getElementById('ptBtn');
+            const enBtn = document.getElementById('enBtn');
+            
+            ptBtn.addEventListener('click', function() {
+                if (currentLang !== 'pt') {
+                    currentLang = 'pt';
+                    updateLanguage();
+                    ptBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                }
             });
+            
+            enBtn.addEventListener('click', function() {
+                if (currentLang !== 'en') {
+                    currentLang = 'en';
+                    updateLanguage();
+                    enBtn.classList.add('active');
+                    ptBtn.classList.remove('active');
+                }
+            });
+            
+            // Update page language
+            function updateLanguage() {
+                const elements = document.querySelectorAll('[data-translate]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[currentLang][key]) {
+                        element.textContent = translations[currentLang][key];
+                    }
+                });
+            }
             
             // Video player close button
             const videoClose = document.querySelector('.video-close');
@@ -1084,10 +1692,10 @@
             demoAdminBtn.addEventListener('click', function() {
                 if (adminSection.style.display === 'block') {
                     adminSection.style.display = 'none';
-                    demoAdminBtn.textContent = 'Área do Professor';
+                    demoAdminBtn.textContent = translations[currentLang]['teacher-area'];
                 } else {
                     adminSection.style.display = 'block';
-                    demoAdminBtn.textContent = 'Fechar Área do Professor';
+                    demoAdminBtn.textContent = translations[currentLang]['teacher-area-close'] || 'Close Teacher Area';
                     // Scroll to admin section
                     adminSection.scrollIntoView({behavior: 'smooth'});
                 }
@@ -1123,7 +1731,7 @@
                     const details = card.querySelector('.course-details').innerHTML;
                     
                     modalTitle.textContent = title;
-                    modalContent.innerHTML = `<p class="price">${price}</p>${details}`;
+                    modalContent.innerHTML = `<p class="price">${price}</p>${details}<button class="btn btn-primary" style="margin-top: 20px;">Comprar Curso</button>`;
                     
                     modal.style.display = 'flex';
                 });
@@ -1137,6 +1745,57 @@
                 if (e.target === modal) {
                     modal.style.display = 'none';
                 }
+            });
+            
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab button
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding tab pane
+                    tabPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                        if (pane.id === tabId) {
+                            pane.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Exercise submission
+            const submitButtons = document.querySelectorAll('.submit-btn');
+            
+            submitButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const exercise = this.closest('.exercise');
+                    const inputs = exercise.querySelectorAll('.exercise-input');
+                    let allCorrect = true;
+                    
+                    inputs.forEach(input => {
+                        const answer = input.getAttribute('data-answer').toLowerCase();
+                        const userAnswer = input.value.toLowerCase().trim();
+                        
+                        if (userAnswer === answer) {
+                            input.style.borderColor = 'green';
+                        } else {
+                            input.style.borderColor = 'red';
+                            allCorrect = false;
+                        }
+                    });
+                    
+                    if (allCorrect) {
+                        alert(translations[currentLang]['exercise-correct'] || 'Parabéns! Todas as respostas estão corretas.');
+                    } else {
+                        alert(translations[currentLang]['exercise-incorrect'] || 'Algumas respostas estão incorretas. Tente novamente.');
+                    }
+                });
             });
         });
     </script>
