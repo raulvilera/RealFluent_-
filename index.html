@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning Hub - Plataforma de Ensino de Inglês</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #ffbe0b;
+            --text: #2b2d42;
+            --text-light: #8d99ae;
+            --card-bg: #ffffff;
+            --hover-effect: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: #f5f7ff;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--hover-effect);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--hover-effect);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(67, 97, 238, 0.8), rgba(58, 12, 163, 0.8));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--hover-effect);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 80px 0;
+            background-color: #f5f7ff;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--hover-effect);
+        }
+
+        .course-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin: 15px 0;
+        }
+
+        /* Carousel Section */
+        .carousel {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .carousel-item:nth-child(1) {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+        }
+
+        .carousel-item:nth-child(2) {
+            background: linear-gradient(135deg, #f72585 0%, #7209b7 100%);
+        }
+
+        .carousel-item:nth-child(3) {
+            background: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--hover-effect);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--hover-effect);
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--hover-effect);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .feature-card, .course-card {
+                padding: 20px;
+            }
+            
+            .carousel-item {
+                height: 300px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .features, .courses, .carousel {
+                padding: 60px 0;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Video Player */
+        .video-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: var(--dark);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: var(--hover-effect);
+        }
+
+        .video-header {
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-header h3 {
+            font-size: 1rem;
+        }
+
+        .video-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .video-content {
+            padding: 15px;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 170px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            padding: 10px 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--hover-effect);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Firebase Config Section (Admin Only) */
+        .admin-section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
+        }
+
+        .admin-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Demo Admin Button */
+        .demo-admin-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: var(--hover-effect);
+        }
+
+        .demo-admin-btn:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active">PT</button>
+        <button class="lang-btn">EN</button>
+    </div>
+
+    <!-- Video Player (Wondershare Integration) -->
+    <div class="video-player">
+        <div class="video-header">
+            <h3>Aula ao Vivo</h3>
+            <button class="video-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="video-content">
+            <div class="video-placeholder">
+                <i class="fas fa-play-circle" style="font-size: 2rem;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Admin Button -->
+    <button class="demo-admin-btn" id="demoAdminBtn">Área do Professor</button>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>English Hub</span>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#courses">Cursos</a></li>
+                    <li><a href="#features">Recursos</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="#login" class="btn btn-outline">Entrar</a>
+                <a href="#signup" class="btn btn-primary">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Aprenda Inglês de Forma Moderna e Eficiente</h1>
+            <p>Nossa plataforma oferece cursos de inglês com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.</p>
+            <a href="#courses" class="btn btn-primary">Explorar Cursos</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recursos da Plataforma</h2>
+                <p>Descubra como nossa plataforma pode transformar sua experiência de aprendizado de inglês</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Upload de Materiais</h3>
+                    <p>Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videoaulas Integradas</h3>
+                    <p>Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Sistema de Pagamento</h3>
+                    <p>Processamento seguro de pagamentos com emissão automática de nota fiscal.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Design Responsivo</h3>
+                    <p>Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Área do Professor</h3>
+                    <p>Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Integração Firebase</h3>
+                    <p>Armazenamento seguro e autenticação através do Firebase do Google.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Cursos</h2>
+                <p>Escolha entre uma variedade de cursos de inglês para todos os níveis</p>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Inglês Básico</h3>
+                        <p>Curso ideal para iniciantes que desejam aprender o fundamento da língua inglesa.</p>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> 40 horas</span>
+                            <span><i class="fas fa-user-graduate"></i> 120 alunos</span>
+                        </div>
+                        <div class="price">R$ 199,90</div>
+                        <a href="#" class="btn btn-primary">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Inglês Intermediário</h3>
+                        <p>Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> 60 horas</span>
+                            <span><i class="fas fa-user-graduate"></i> 85 alunos</span>
+                        </div>
+                        <div class="price">R$ 299,90</div>
+                        <a href="#" class="btn btn-primary">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Inglês Avançado</h3>
+                        <p>Perfeito para quem busca fluência e domínio completo do idioma.</p>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> 80 horas</span>
+                            <span><i class="fas fa-user-graduate"></i> 64 alunos</span>
+                        </div>
+                        <div class="price">R$ 399,90</div>
+                        <a href="#" class="btn btn-primary">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carousel">
+        <div class="container">
+            <div class="section-title">
+                <h2>Materiais Didáticos</h2>
+                <p>Conheça alguns dos materiais disponíveis em nossa plataforma</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="carousel-item">Conteúdo Interativo</div>
+                    <div class="carousel-item">Exercícios Práticos</div>
+                    <div class="carousel-item">Avaliações Personalizadas</div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firebase Config Section (Admin Only) -->
+    <section class="admin-section" id="adminSection">
+        <div class="container">
+            <h2>Configuração do Firebase</h2>
+            <div class="form-group">
+                <label for="apiKey">Chave API</label>
+                <input type="text" id="apiKey" placeholder="Digite a chave API do Firebase">
+            </div>
+            <div class="form-group">
+                <label for="authDomain">Domínio de Autenticação</label>
+                <input type="text" id="authDomain" placeholder="seu-projeto.firebaseapp.com">
+            </div>
+            <div class="form-group">
+                <label for="projectId">ID do Projeto</label>
+                <input type="text" id="projectId" placeholder="ID do seu projeto no Firebase">
+            </div>
+            <div class="form-group">
+                <label for="storageBucket">Storage Bucket</label>
+                <input type="text" id="storageBucket" placeholder="seu-projeto.appspot.com">
+            </div>
+            <div class="form-group">
+                <label for="messagingSenderId">Messaging Sender ID</label>
+                <input type="text" id="messagingSenderId" placeholder="Seu Messaging Sender ID">
+            </div>
+            <div class="form-group">
+                <label for="appId">ID do App</label>
+                <input type="text" id="appId" placeholder="ID do seu aplicativo">
+            </div>
+            <button class="btn btn-primary">Salvar Configurações</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>English Learning Hub</h3>
+                    <p>Plataforma moderna de ensino de inglês com tecnologia de ponta e recursos inovadores.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#courses">Cursos</a></li>
+                        <li><a href="#features">Recursos</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Cursos</h3>
+                    <ul>
+                        <li><a href="#">Inglês Básico</a></li>
+                        <li><a href="#">Inglês Intermediário</a></li>
+                        <li><a href="#">Inglês Avançado</a></li>
+                        <li><a href="#">Inglês para Negócios</a></li>
+                        <li><a href="#">Preparação para TOEFL/IELTS</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo</li>
+                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@englishhub.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 English Learning Hub. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Demo functionality for the platform
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carousel functionality
+            const slide = document.querySelector('.carousel-slide');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+            
+            function updateCarousel() {
+                slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+            
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                updateCarousel();
+            });
+            
+            // Auto-advance carousel
+            setInterval(function() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            }, 5000);
+            
+            // Language toggle
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // Here you would typically update the page content to the selected language
+                });
+            });
+            
+            // Video player close button
+            const videoClose = document.querySelector('.video-close');
+            const videoPlayer = document.querySelector('.video-player');
+            videoClose.addEventListener('click', function() {
+                videoPlayer.style.display = 'none';
+            });
+            
+            // Demo admin button
+            const demoAdminBtn = document.getElementById('demoAdminBtn');
+            const adminSection = document.getElementById('adminSection');
+            
+            demoAdminBtn.addEventListener('click', function() {
+                if (adminSection.style.display === 'block') {
+                    adminSection.style.display = 'none';
+                    demoAdminBtn.textContent = 'Área do Professor';
+                } else {
+                    adminSection.style.display = 'block';
+                    demoAdminBtn.textContent = 'Fechar Área do Professor';
+                    // Scroll to admin section
+                    adminSection.scrollIntoView({behavior: 'smooth'});
+                }
+            });
+            
+            // Course card hover effect
+            const courseCards = document.querySelectorAll('.course-card');
+            courseCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.03)';
+                    this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.05)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
