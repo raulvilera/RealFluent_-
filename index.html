@@ -282,12 +282,13 @@
 
         .course-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 2rem;
+            background-size: cover;
+            background-position: center;
         }
 
         .course-content {
@@ -1191,15 +1192,15 @@
             <div class="courses-grid">
                 <!-- Curso Básico - Todas as lições consolidadas -->
                 <div class="course-card">
-                    <div class="course-image">
-                        <i class="fas fa-book-open"></i>
+                    <div class="course-image" style="background-image: url('https://www.canva.com/design/DAGxjWEksy4/bii2PZYgfSCyDCRbO7BYhw/view'); background-size: cover;">
+                        <!-- Imagem adicionada via CSS background-image -->
                     </div>
                     <div class="course-content">
                         <h3 data-translate="course-basic">Inglês Básico</h3>
                         <p data-translate="course-basic-desc">Curso completo para iniciantes com todas as lições de todos os níveis.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> <span data-translate="course-hours">120 horas</span></span>
-                            <span><i class="fas fa-user-graduate"></i> <span data-translate="course-students">300 alunos</span></span>
+                            <span><i class="far fa-clock"></i> <span class="course-hours" data-course="basic">0 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="course-students" data-course="basic">0 alunos</span></span>
                         </div>
                         <div class="price">R$ 399,90</div>
                         <a href="#" class="btn access-btn" data-translate="course-access" data-course="basic">Acessar</a>
@@ -1820,8 +1821,8 @@
                         <h3>Inglês intermediário 1</h3>
                         <p>Para quem já tem conhecimentos básicos e quer avançar no aprendizado.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 60 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 85 alunos</span>
+                            <span><i class="far fa-clock"></i> <span class="course-hours" data-course="intermediate1">0 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="course-students" data-course="intermediate1">0 alunos</span></span>
                         </div>
                         <div class="price">R$ 300,00</div>
                         <a href="#" class="btn access-btn" data-course="intermediate1">Acessar</a>
@@ -1837,8 +1838,8 @@
                         <h3>Inglês intermediário 2</h3>
                         <p>Continuação do curso intermediário com foco em conversação.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 60 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 72 alunos</span>
+                            <span><i class="far fa-clock"></i> <span class="course-hours" data-course="intermediate2">0 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="course-students" data-course="intermediate2">0 alunos</span></span>
                         </div>
                         <div class="price">R$ 300,00</div>
                         <a href="#" class="btn access-btn" data-course="intermediate2">Acessar</a>
@@ -1854,8 +1855,8 @@
                         <h3>Inglês intermediário 3</h3>
                         <p>Avançando para o nível pré-avançado com gramática complexa.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 60 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 58 alunos</span>
+                            <span><i class="far fa-clock"></i> <span class="course-hours" data-course="intermediate3">0 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="course-students" data-course="intermediate3">0 alunos</span></span>
                         </div>
                         <div class="price">R$ 300,00</div>
                         <a href="#" class="btn access-btn" data-course="intermediate3">Acessar</a>
@@ -1869,10 +1870,10 @@
                     </div>
                     <div class="course-content">
                         <h3>Avançado 1</h3>
-                        <p>Perfeito para quem busca fluência e domínio completo do idioma.</p>
+                        <p>Perfeito para quem busca fluência and domínio completo do idioma.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 80 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 64 alunos</span>
+                            <span><i class="far fa-clock"></i> <span class="course-hours" data-course="advanced1">0 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="course-students" data-course="advanced1">0 alunos</span></span>
                         </div>
                         <div class="price">R$ 300,00</div>
                         <a href="#" class="btn access-btn" data-course="advanced1">Acessar</a>
@@ -1888,8 +1889,8 @@
                         <h3>Avançado 2</h3>
                         <p>Domínio completo do inglês com foco em situações complexas.</p>
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> 80 horas</span>
-                            <span><i class="fas fa-user-graduate"></i> 42 alunos</span>
+                            <span><i class="far fa-clock"></i> <span class="course-hours" data-course="advanced2">0 horas</span></span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="course-students" data-course="advanced2">0 alunos</span></span>
                         </div>
                         <div class="price">R$ 300,00</div>
                         <a href="#" class="btn access-btn" data-course="advanced2">Acessar</a>
@@ -2133,6 +2134,57 @@
     </div>
 
     <script>
+        // Sistema de cálculo de horas baseado na dificuldade das lições
+        const courseDifficulty = {
+            'basic': [1, 2, 1, 2, 3, 2, 3, 4, 3], // 9 lições com níveis de dificuldade
+            'intermediate1': [3, 3, 4, 4, 4, 5, 5, 5],
+            'intermediate2': [4, 4, 4, 5, 5, 5, 5, 5],
+            'intermediate3': [4, 4, 5, 5, 5, 5, 5, 5],
+            'advanced1': [5, 5, 5, 5, 5, 5, 5, 5],
+            'advanced2': [5, 5, 5, 5, 5, 5, 5, 5]
+        };
+
+        // Função para calcular horas totais do curso
+        function calculateCourseHours(courseId) {
+            if (!courseDifficulty[courseId]) return 0;
+            
+            let totalHours = 0;
+            courseDifficulty[courseId].forEach(difficulty => {
+                // Cada ponto de dificuldade equivale a 1.5 horas de estudo
+                totalHours += difficulty * 1.5;
+            });
+            
+            return Math.round(totalHours);
+        }
+
+        // Funções para gerenciar alunos
+        function getCourseStudents(courseId) {
+            const students = localStorage.getItem(`course_${courseId}_students`);
+            return students ? parseInt(students) : 0;
+        }
+
+        function incrementCourseStudents(courseId) {
+            let current = getCourseStudents(courseId);
+            current++;
+            localStorage.setItem(`course_${courseId}_students`, current);
+            return current;
+        }
+
+        // Atualizar informações dos cursos
+        function updateCourseInfo() {
+            document.querySelectorAll('.course-hours').forEach(element => {
+                const courseId = element.getAttribute('data-course');
+                const hours = calculateCourseHours(courseId);
+                element.textContent = `${hours} horas`;
+            });
+
+            document.querySelectorAll('.course-students').forEach(element => {
+                const courseId = element.getAttribute('data-course');
+                const students = getCourseStudents(courseId);
+                element.textContent = `${students} alunos`;
+            });
+        }
+
         // Translations object
         const translations = {
             'pt': {
@@ -2159,8 +2211,8 @@
                 'courses-desc': 'Escolha entre uma variedade de cursos de inglês para todos os níveis',
                 'course-basic': 'Inglês Básico',
                 'course-basic-desc': 'Curso completo para iniciantes com todas as lições de todos os níveis.',
-                'course-hours': '120 horas',
-                'course-students': '300 alunos',
+                'course-hours': 'horas',
+                'course-students': 'alunos',
                 'course-includes': 'Este curso inclui:',
                 'course-basic-item1': 'Gramática básica',
                 'course-basic-item2': 'Vocabulário essencial',
@@ -2263,8 +2315,8 @@
                 'courses-desc': 'Choose from a variety of English courses for all levels',
                 'course-basic': 'Basic English',
                 'course-basic-desc': 'Complete course for beginners with all lessons from all levels.',
-                'course-hours': '120 hours',
-                'course-students': '300 students',
+                'course-hours': 'hours',
+                'course-students': 'students',
                 'course-includes': 'This course includes:',
                 'course-basic-item1': 'Basic grammar',
                 'course-basic-item2': 'Essential vocabulary',
@@ -2347,6 +2399,9 @@
 
         // Demo functionality for the platform
         document.addEventListener('DOMContentLoaded', function() {
+            // Atualizar informações dos cursos
+            updateCourseInfo();
+            
             // Set initial language
             let currentLang = 'pt';
             
@@ -2490,17 +2545,22 @@
                     e.preventDefault();
                     const courseType = this.getAttribute('data-course');
                     
-                    // Hide access button and show details button
+                    // Incrementar o número de alunos
+                    const newCount = incrementCourseStudents(courseType);
+                    
+                    // Atualizar o DOM
+                    const courseCard = this.closest('.course-card');
+                    const studentsElement = courseCard.querySelector('.course-students');
+                    studentsElement.textContent = `${newCount} alunos`;
+                    
+                    // Resto do código original para mostrar os detalhes
                     this.style.display = 'none';
                     const detailsBtn = this.nextElementSibling;
                     detailsBtn.style.display = 'block';
                     
-                    // Show course details
-                    const courseCard = this.closest('.course-card');
                     const courseDetails = courseCard.querySelector('.course-details');
                     courseDetails.style.display = 'block';
                     
-                    // Scroll to course details
                     courseDetails.scrollIntoView({behavior: 'smooth', block: 'start'});
                 });
             });
