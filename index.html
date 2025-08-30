@@ -973,6 +973,67 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* NOVOS ESTILOS PARA LAYOUT DE LICÕES EM TELA CHEIA */
+        .lesson-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+            display: none;
+        }
+        
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .close-lesson {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .lesson-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .lesson-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .lesson-body {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .lesson-fullscreen .exercise {
+            margin: 30px 0;
+        }
+        
+        .lesson-fullscreen .lesson-navigation {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
     </style>
 </head>
 <body>
@@ -1032,7 +1093,7 @@
         <div class="carousel-slides">
             <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1351&q=80');">
                 <div class="slide-content">
-                    <h1 data-translate="hero-title-1">Aprenda Inglês de Forma Moderna e Eficiente</h1>
+                    <h1 data-translate="hero-title-1">Aprenda Inglês de Forma Moderna and Eficiente</h1>
                     <p data-translate="hero-desc-1">Nossa plataforma oferece cursos de inglês com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.</p>
                     <a href="#courses" class="btn btn-primary" data-translate="hero-cta-1">Explorar Cursos</a>
                 </div>
@@ -1659,7 +1720,7 @@
                                 <ol>
                                     <li><strong>Interrogativo (verbo auxiliar):</strong> Todas as perguntas simples devem ter um interrogativo. "DO" é usado por verbos de ação.</li>
                                     <li><strong>Fazer:</strong> Há duas palavras para "fazer" em inglês: DO e MAKE. DO refere-se a uma ação (geralmente) e MAKE refere-se a um verbo de construção.</li>
-                                    <li><strong>Negativo:</strong> Quando falando sobre negativos, a palavra "DO" é adicionada ao verbo.</li>
+                                    <li><strong>Negativo:</strong> Quando falando sobre negativos, a palavra "DO" is adicionada ao verbo.</li>
                                 </ol>
                                 
                                 <h4>Exemplos:</h4>
@@ -2028,7 +2089,7 @@
                             
                             <div class="lesson-tab-content" id="lesson9">
                                 <h3>Lição 9: Vocabulário de Família e Expressões</h3>
-                                <p>Aprenda o vocabulário relacionado à família e expressões comuns em inglês.</p>
+                                <p>Aprenda o vocabulário relacionado à família and expressões comuns em inglês.</p>
                                 
                                 <h4>Vocabulário de Família</h4>
                                 <table class="vocabulary-table">
@@ -2282,7 +2343,7 @@
                 
                 <div class="form-row">
                     <div class="form-field">
-                        <label for="password">Senha</label>
+                        <label for="password">Senza</label>
                         <input type="password" id="password" placeholder="Crie uma senha segura" required>
                     </div>
                 </div>
@@ -2352,6 +2413,17 @@
         </div>
     </footer>
 
+    <!-- Lesson Fullscreen Container -->
+    <div class="lesson-fullscreen" id="lessonFullscreen">
+        <div class="lesson-header">
+            <h2 id="fullscreenLessonTitle">Título da Lição</h2>
+            <button class="close-lesson" id="closeLesson">Fechar Lição</button>
+        </div>
+        <div class="lesson-container" id="fullscreenLessonContent">
+            <!-- Conteúdo da lição será inserido aqui via JavaScript -->
+        </div>
+    </div>
+
     <script>
         // Translations object
         const translations = {
@@ -2392,7 +2464,7 @@
                 'course-intermediate-desc': 'Para quem já tem conhecimentos básicos e quer avançar no aprendizado.',
                 'course-intermediate-item1': 'Gramática intermediária',
                 'course-intermediate-item2': 'Conversação fluente',
-                'course-intermediate-item3': 'Leitura e interpretação de textos',
+                'course-intermediate-item3': 'Leitura and interpretação de textos',
                 'course-intermediate-item4': 'Exercícios avançados',
                 'course-advanced': 'Inglês Avançado',
                 'course-advanced-desc': 'Perfeito para quem busca fluência e domínio completo do idioma.',
@@ -2416,7 +2488,7 @@
                 'pronoun-it': 'Esta/Aquela/Etc.',
                 'pronoun-they': 'Eles/Elas',
                 'verb-to-be': 'Verbo To Be',
-                'verb-to-be-desc': 'O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".',
+                'verb-to-be-desc': 'O verbo to be é um dos verbos mais importantes em inglês and significa "ser" ou "estar".',
                 'person': 'Pessoa',
                 'conjugation': 'Conjugação',
                 '1st-person': '1ª pessoa (I)',
@@ -2434,7 +2506,7 @@
                 'question': 'Pergunta: Are you tall? (Você é alto?)',
                 'exercise-2': 'Exercício 2: Transforme as afirmações em perguntas',
                 'features-title': 'Recursos da Plataforma',
-                'features-desc': 'Descubra como nossa plataforma pode transformar sua experiência de aprendizado de inglês',
+                'features-desc': 'Descubra como nossa plataforma can transformar sua experiência de aprendizado de inglês',
                 'feature-1-title': 'Upload de Materiais',
                 'feature-1-desc': 'Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.',
                 'feature-2-title': 'Videoaulas Integradas',
@@ -2887,6 +2959,106 @@
                     }
                 });
             });
+            
+            // Fullscreen lesson functionality
+            const lessonFullscreen = document.getElementById('lessonFullscreen');
+            const fullscreenLessonTitle = document.getElementById('fullscreenLessonTitle');
+            const fullscreenLessonContent = document.getElementById('fullscreenLessonContent');
+            const closeLessonBtn = document.getElementById('closeLesson');
+            
+            // Function to open lesson in fullscreen
+            function openLessonFullscreen(lessonContent, lessonTitle) {
+                fullscreenLessonTitle.textContent = lessonTitle;
+                fullscreenLessonContent.innerHTML = lessonContent.innerHTML;
+                lessonFullscreen.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Close fullscreen lesson
+            closeLessonBtn.addEventListener('click', function() {
+                lessonFullscreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Add click event to all lesson tabs to open in fullscreen
+            const allLessonTabs = document.querySelectorAll('.lesson-tab');
+            allLessonTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    const lessonContent = document.getElementById(tabId);
+                    const lessonTitle = lessonContent.querySelector('h3').textContent;
+                    
+                    // Open in fullscreen
+                    openLessonFullscreen(lessonContent, lessonTitle);
+                });
+            });
+            
+            // Add click event to lesson navigation buttons in fullscreen mode
+            function setupFullscreenNavigation() {
+                const fullscreenNextButtons = fullscreenLessonContent.querySelectorAll('.next-lesson');
+                const fullscreenPrevButtons = fullscreenLessonContent.querySelectorAll('.prev-lesson');
+                
+                fullscreenNextButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const nextLesson = this.getAttribute('data-next');
+                        if (nextLesson) {
+                            const nextLessonContent = document.getElementById(nextLesson);
+                            const nextLessonTitle = nextLessonContent.querySelector('h3').textContent;
+                            openLessonFullscreen(nextLessonContent, nextLessonTitle);
+                        }
+                    });
+                });
+                
+                fullscreenPrevButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const prevLesson = this.getAttribute('data-prev');
+                        if (prevLesson) {
+                            const prevLessonContent = document.getElementById(prevLesson);
+                            const prevLessonTitle = prevLessonContent.querySelector('h3').textContent;
+                            openLessonFullscreen(prevLessonContent, prevLessonTitle);
+                        }
+                    });
+                });
+            }
+            
+            // Re-setup navigation when lesson content changes
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'childList') {
+                        setupFullscreenNavigation();
+                        
+                        // Reattach exercise submission handlers
+                        const fullscreenSubmitButtons = fullscreenLessonContent.querySelectorAll('.submit-btn');
+                        fullscreenSubmitButtons.forEach(button => {
+                            button.addEventListener('click', function() {
+                                const exercise = this.closest('.exercise');
+                                const inputs = exercise.querySelectorAll('.exercise-input');
+                                let allCorrect = true;
+                                
+                                inputs.forEach(input => {
+                                    const answer = input.getAttribute('data-answer').toLowerCase();
+                                    const userAnswer = input.value.toLowerCase().trim();
+                                    
+                                    if (userAnswer === answer) {
+                                        input.style.borderColor = 'green';
+                                    } else {
+                                        input.style.borderColor = 'red';
+                                        allCorrect = false;
+                                    }
+                                });
+                                
+                                if (allCorrect) {
+                                    alert('Parabéns! Todas as respostas estão corretas.');
+                                } else {
+                                    alert('Algumas respostas estão incorretas. Tente novamente.');
+                                }
+                            });
+                        });
+                    }
+                });
+            });
+            
+            observer.observe(fullscreenLessonContent, { childList: true, subtree: true });
         });
     </script>
 </body>
