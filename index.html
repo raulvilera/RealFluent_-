@@ -926,12 +926,14 @@
             display: flex;
             margin-bottom: 20px;
             border-bottom: 2px solid #eee;
+            overflow-x: auto;
         }
         
         .lesson-tab {
             padding: 10px 20px;
             cursor: pointer;
             border-bottom: 3px solid transparent;
+            white-space: nowrap;
         }
         
         .lesson-tab.active {
@@ -1150,7 +1152,7 @@
         <div class="carousel-slides">
             <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1351&q=80');">
                 <div class="slide-content">
-                    <h1 data-translate="hero-title-1">Aprenda Inglês de Forma Moderna and Eficiente</h1>
+                    <h1 data-translate="hero-title-1">Aprenda Inglês de Forma Moderna e Eficiente</h1>
                     <p data-translate="hero-desc-1">Nossa plataforma oferece cursos de inglês com tecnologia de ponta, materiais diversificados e suporte completo para seu aprendizado.</p>
                     <a href="#courses" class="btn btn-primary" data-translate="hero-cta-1">Explorar Cursos</a>
                 </div>
@@ -1218,6 +1220,11 @@
                                 <li><i class="fas fa-check-circle"></i> Lição 7: Present Continuous</li>
                                 <li><i class="fas fa-check-circle"></i> Lição 8: Terceira Pessoa e Pronomes Demonstrativos</li>
                                 <li><i class="fas fa-check-circle"></i> Lição 9: Vocabulário de Família e Expressões</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 10: Plural e Singular</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 11: Adjetivos e Comparativos</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 12: Passado Simples</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 13: Futuro com Will</li>
+                                <li><i class="fas fa-check-circle"></i> Lição 14: Preposições de Tempo e Lugar</li>
                             </ul>
                             
                             <div class="lesson-tabs">
@@ -1230,6 +1237,11 @@
                                 <div class="lesson-tab" data-tab="lesson7">Lição 7</div>
                                 <div class="lesson-tab" data-tab="lesson8">Lição 8</div>
                                 <div class="lesson-tab" data-tab="lesson9">Lição 9</div>
+                                <div class="lesson-tab" data-tab="lesson10">Lição 10</div>
+                                <div class="lesson-tab" data-tab="lesson11">Lição 11</div>
+                                <div class="lesson-tab" data-tab="lesson12">Lição 12</div>
+                                <div class="lesson-tab" data-tab="lesson13">Lição 13</div>
+                                <div class="lesson-tab" data-tab="lesson14">Lição 14</div>
                             </div>
                             
                             <!-- Lição 1 -->
@@ -1746,9 +1758,6 @@
                                 </div>
                             </div>
                             
-                            <!-- As outras lições (4-9) seriam implementadas de forma similar -->
-                            <!-- Para economizar espaço, vou incluir apenas o esqueleto das lições restantes -->
-                            
                             <!-- Lição 4 -->
                             <div class="lesson-tab-content" id="lesson4">
                                 <h3>Lição 4: Verbos de Ação e Perguntas com DO</h3>
@@ -1762,7 +1771,60 @@
                             <!-- Lição 5 -->
                             <div class="lesson-tab-content" id="lesson5">
                                 <h3>Lição 5: THERE e Pronomes Pessoais</h3>
-                                <p>Conteúdo da lição 5...</p>
+                                <p>Aprenda a usar THERE IS e THERE ARE para falar sobre existência e revisar os pronomes pessoais.</p>
+                                
+                                <h4>THERE IS / THERE ARE</h4>
+                                <p>Usamos THERE IS para singular e THERE ARE para plural:</p>
+                                <ul>
+                                    <li>There is a book on the table. (Há um livro sobre a mesa)</li>
+                                    <li>There are two books on the table. (Há dois livros sobre a mesa)</li>
+                                </ul>
+                                
+                                <h4>Forma Negativa</h4>
+                                <ul>
+                                    <li>There is not (isn't) a book on the table.</li>
+                                    <li>There are not (aren't) two books on the table.</li>
+                                </ul>
+                                
+                                <h4>Perguntas</h4>
+                                <ul>
+                                    <li>Is there a book on the table?</li>
+                                    <li>Are there two books on the table?</li>
+                                </ul>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com THERE IS ou THERE ARE</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. ______ a car in the garage.</p>
+                                            <input type="text" class="exercise-input" data-answer="There is">
+                                            
+                                            <p>2. ______ three students in the classroom.</p>
+                                            <input type="text" class="exercise-input" data-answer="There are">
+                                            
+                                            <p>3. ______ a dog in the garden.</p>
+                                            <input type="text" class="exercise-input" data-answer="There is">
+                                            
+                                            <p>4. ______ many books on the shelf.</p>
+                                            <input type="text" class="exercise-input" data-answer="There are">
+                                        </div>
+                                        <div>
+                                            <p>5. ______ an apple on the table.</p>
+                                            <input type="text" class="exercise-input" data-answer="There is">
+                                            
+                                            <p>6. ______ some water in the bottle.</p>
+                                            <input type="text" class="exercise-input" data-answer="There is">
+                                            
+                                            <p>7. ______ five chairs in the room.</p>
+                                            <input type="text" class="exercise-input" data-answer="There are">
+                                            
+                                            <p>8. ______ a computer on the desk.</p>
+                                            <input type="text" class="exercise-input" data-answer="There is">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
                                 <div class="lesson-navigation">
                                     <button class="nav-btn prev-lesson" data-prev="lesson4">Lições Anterior</button>
                                     <button class="nav-btn next-lesson" data-next="lesson6">Próxima Lição</button>
@@ -1772,7 +1834,61 @@
                             <!-- Lição 6 -->
                             <div class="lesson-tab-content" id="lesson6">
                                 <h3>Lição 6: CAN (habilidade/permissão)</h3>
-                                <p>Conteúdo da lição 6...</p>
+                                <p>Aprenda a usar CAN para expressar habilidade e permissão.</p>
+                                
+                                <h4>Usos do CAN</h4>
+                                <ul>
+                                    <li>Habilidade: I can speak English. (Eu sei falar inglês)</li>
+                                    <li>Permissão: Can I go to the bathroom? (Posso ir ao banheiro?)</li>
+                                    <li>Possibilidade: It can be difficult. (Pode ser difícil)</li>
+                                </ul>
+                                
+                                <h4>Forma Negativa</h4>
+                                <p>CANNOT ou CAN'T</p>
+                                <ul>
+                                    <li>I cannot swim. (Eu não sei nadar)</li>
+                                    <li>He can't come today. (Ele não pode vir hoje)</li>
+                                </ul>
+                                
+                                <h4>Perguntas</h4>
+                                <ul>
+                                    <li>Can you help me? (Você pode me ajudar?)</li>
+                                    <li>Can she drive? (Ela sabe dirigir?)</li>
+                                </ul>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com CAN ou CAN'T</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. I ______ speak French, but I ______ speak English.</p>
+                                            <input type="text" class="exercise-input" data-answer="can't, can">
+                                            
+                                            <p>2. ______ you help me with this exercise?</p>
+                                            <input type="text" class="exercise-input" data-answer="Can">
+                                            
+                                            <p>3. She ______ play the piano very well.</p>
+                                            <input type="text" class="exercise-input" data-answer="can">
+                                            
+                                            <p>4. We ______ go to the party tomorrow.</p>
+                                            <input type="text" class="exercise-input" data-answer="can't">
+                                        </div>
+                                        <div>
+                                            <p>5. ______ I use your phone?</p>
+                                            <input type="text" class="exercise-input" data-answer="Can">
+                                            
+                                            <p>6. They ______ come to the meeting today.</p>
+                                            <input type="text" class="exercise-input" data-answer="can't">
+                                            
+                                            <p>7. He ______ swim when he was five years old.</p>
+                                            <input type="text" class="exercise-input" data-answer="could">
+                                            
+                                            <p>8. ______ we leave early today?</p>
+                                            <input type="text" class="exercise-input" data-answer="Can">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
                                 <div class="lesson-navigation">
                                     <button class="nav-btn prev-lesson" data-prev="lesson5">Lições Anterior</button>
                                     <button class="nav-btn next-lesson" data-next="lesson7">Próxima Lição</button>
@@ -1782,7 +1898,63 @@
                             <!-- Lição 7 -->
                             <div class="lesson-tab-content" id="lesson7">
                                 <h3>Lição 7: Present Continuous</h3>
-                                <p>Conteúdo da lição 7...</p>
+                                <p>Aprenda a usar o Present Continuous para ações que estão acontecendo agora.</p>
+                                
+                                <h4>Estrutura</h4>
+                                <p>Sujeito + verbo TO BE + verbo principal + ING</p>
+                                <ul>
+                                    <li>I am studying English now. (Estou estudando inglês agora)</li>
+                                    <li>You are watching TV. (Você está assistindo TV)</li>
+                                    <li>He is working at the moment. (Ele está trabalhando no momento)</li>
+                                </ul>
+                                
+                                <h4>Forma Negativa</h4>
+                                <ul>
+                                    <li>I am not studying now.</li>
+                                    <li>You are not watching TV.</li>
+                                    <li>He is not working.</li>
+                                </ul>
+                                
+                                <h4>Perguntas</h4>
+                                <ul>
+                                    <li>Are you studying English?</li>
+                                    <li>Is he working now?</li>
+                                    <li>What are you doing?</li>
+                                </ul>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com a forma correta do Present Continuous</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. I ______ (study) for my exam.</p>
+                                            <input type="text" class="exercise-input" data-answer="am studying">
+                                            
+                                            <p>2. She ______ (watch) TV right now.</p>
+                                            <input type="text" class="exercise-input" data-answer="is watching">
+                                            
+                                            <p>3. They ______ (play) soccer in the park.</p>
+                                            <input type="text" class="exercise-input" data-answer="are playing">
+                                            
+                                            <p>4. He ______ (not work) today.</p>
+                                            <input type="text" class="exercise-input" data-answer="is not working">
+                                        </div>
+                                        <div>
+                                            <p>5. We ______ (have) dinner at the moment.</p>
+                                            <input type="text" class="exercise-input" data-answer="are having">
+                                            
+                                            <p>6. You ______ (not listen) to me.</p>
+                                            <input type="text" class="exercise-input" data-answer="are not listening">
+                                            
+                                            <p>7. What ______ you ______ (do)?</p>
+                                            <input type="text" class="exercise-input" data-answer="are, doing">
+                                            
+                                            <p>8. Where ______ she ______ (go)?</p>
+                                            <input type="text" class="exercise-input" data-answer="is, going">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
                                 <div class="lesson-navigation">
                                     <button class="nav-btn prev-lesson" data-prev="lesson6">Lições Anterior</button>
                                     <button class="nav-btn next-lesson" data-next="lesson8">Próxima Lição</button>
@@ -1792,7 +1964,68 @@
                             <!-- Lição 8 -->
                             <div class="lesson-tab-content" id="lesson8">
                                 <h3>Lição 8: Terceira Pessoa e Pronomes Demonstrativos</h3>
-                                <p>Conteúdo da lição 8...</p>
+                                <p>Aprenda a usar a terceira pessoa do singular e os pronomes demonstrativos.</p>
+                                
+                                <h4>Terceira Pessoa do Singular</h4>
+                                <p>Na terceira pessoa do singular (he, she, it), os verbos recebem -S no final:</p>
+                                <ul>
+                                    <li>I work → He works</li>
+                                    <li>I study → She studies</li>
+                                    <li>I go → It goes</li>
+                                </ul>
+                                
+                                <h4>Pronomes Demonstrativos</h4>
+                                <table class="vocabulary-table">
+                                    <tr>
+                                        <th>Singular</th>
+                                        <th>Plural</th>
+                                        <th>Uso</th>
+                                    </tr>
+                                    <tr>
+                                        <td>This</td>
+                                        <td>These</td>
+                                        <td>Perto do falante</td>
+                                    </tr>
+                                    <tr>
+                                        <td>That</td>
+                                        <td>Those</td>
+                                        <td>Longe do falante</td>
+                                    </tr>
+                                </table>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com a forma correta do verbo</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. She ______ (like) chocolate.</p>
+                                            <input type="text" class="exercise-input" data-answer="likes">
+                                            
+                                            <p>2. He ______ (study) every day.</p>
+                                            <input type="text" class="exercise-input" data-answer="studies">
+                                            
+                                            <p>3. It ______ (rain) a lot here.</p>
+                                            <input type="text" class="exercise-input" data-answer="rains">
+                                            
+                                            <p>4. My brother ______ (work) in an office.</p>
+                                            <input type="text" class="exercise-input" data-answer="works">
+                                        </div>
+                                        <div>
+                                            <p>5. Maria ______ (speak) three languages.</p>
+                                            <input type="text" class="exercise-input" data-answer="speaks">
+                                            
+                                            <p>6. The dog ______ (bark) at night.</p>
+                                            <input type="text" class="exercise-input" data-answer="barks">
+                                            
+                                            <p>7. John ______ (play) tennis on weekends.</p>
+                                            <input type="text" class="exercise-input" data-answer="plays">
+                                            
+                                            <p>8. The sun ______ (rise) in the east.</p>
+                                            <input type="text" class="exercise-input" data-answer="rises">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
                                 <div class="lesson-navigation">
                                     <button class="nav-btn prev-lesson" data-prev="lesson7">Lições Anterior</button>
                                     <button class="nav-btn next-lesson" data-next="lesson9">Próxima Lição</button>
@@ -1802,9 +2035,485 @@
                             <!-- Lição 9 -->
                             <div class="lesson-tab-content" id="lesson9">
                                 <h3>Lição 9: Vocabulário de Família e Expressões</h3>
-                                <p>Conteúdo da lição 9...</p>
+                                <p>Aprenda vocabulário relacionado à família e expressões comuns.</p>
+                                
+                                <h4>Membros da Família</h4>
+                                <table class="vocabulary-table">
+                                    <tr>
+                                        <th>Inglês</th>
+                                        <th>Português</th>
+                                    </tr>
+                                    <tr>
+                                        <td>mother</td>
+                                        <td>mãe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>father</td>
+                                        <td>pai</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sister</td>
+                                        <td>irmã</td>
+                                    </tr>
+                                    <tr>
+                                        <td>brother</td>
+                                        <td>irmão</td>
+                                    </tr>
+                                    <tr>
+                                        <td>grandmother</td>
+                                        <td>avó</td>
+                                    </tr>
+                                    <tr>
+                                        <td>grandfather</td>
+                                        <td>avô</td>
+                                    </tr>
+                                    <tr>
+                                        <td>aunt</td>
+                                        <td>tia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>uncle</td>
+                                        <td>tio</td>
+                                    </tr>
+                                    <tr>
+                                        <td>cousin</td>
+                                        <td>primo/prima</td>
+                                    </tr>
+                                </table>
+                                
+                                <h4>Expressões Comuns</h4>
+                                <table class="vocabulary-table">
+                                    <tr>
+                                        <th>Inglês</th>
+                                        <th>Português</th>
+                                    </tr>
+                                    <tr>
+                                        <td>How are you?</td>
+                                        <td>Como você está?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>What's your name?</td>
+                                        <td>Qual é o seu nome?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Where are you from?</td>
+                                        <td>De onde você é?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nice to meet you</td>
+                                        <td>Prazer em conhecê-lo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>See you later</td>
+                                        <td>Até mais tarde</td>
+                                    </tr>
+                                </table>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Traduza as frases</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. My mother is a teacher.</p>
+                                            <input type="text" class="exercise-input" data-answer="Minha mãe é professora">
+                                            
+                                            <p>2. I have two brothers.</p>
+                                            <input type="text" class="exercise-input" data-answer="Eu tenho dois irmãos">
+                                            
+                                            <p>3. Where is your father?</p>
+                                            <input type="text" class="exercise-input" data-answer="Onde está seu pai?">
+                                            
+                                            <p>4. Her sister is very tall.</p>
+                                            <input type="text" class="exercise-input" data-answer="A irmã dela é muito alta">
+                                        </div>
+                                        <div>
+                                            <p>5. Our grandparents live in the countryside.</p>
+                                            <input type="text" class="exercise-input" data-answer="Nossos avós moram no interior">
+                                            
+                                            <p>6. His uncle is a doctor.</p>
+                                            <input type="text" class="exercise-input" data-answer="O tio dele é médico">
+                                            
+                                            <p>7. I'm fine, thank you.</p>
+                                            <input type="text" class="exercise-input" data-answer="Estou bem, obrigado">
+                                            
+                                            <p>8. See you tomorrow.</p>
+                                            <input type="text" class="exercise-input" data-answer="Até amanhã">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
                                 <div class="lesson-navigation">
                                     <button class="nav-btn prev-lesson" data-prev="lesson8">Lições Anterior</button>
+                                    <button class="nav-btn next-lesson" data-next="lesson10">Próxima Lição</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Lição 10 -->
+                            <div class="lesson-tab-content" id="lesson10">
+                                <h3>Lição 10: Plural e Singular</h3>
+                                <p>Aprenda a formar o plural dos substantivos em inglês.</p>
+                                
+                                <h4>Regras Gerais</h4>
+                                <ul>
+                                    <li>Maioria dos substantivos: adicionar -S (book → books)</li>
+                                    <li>Substantivos terminados em S, SS, SH, CH, X, Z: adicionar -ES (box → boxes)</li>
+                                    <li>Substantivos terminados em Y precedido de consoante: trocar Y por IES (city → cities)</li>
+                                    <li>Substantivos terminados em Y precedido de vogal: adicionar -S (boy → boys)</li>
+                                    <li>Substantivos terminados em F ou FE: trocar por VES (knife → knives)</li>
+                                    <li>Substantivos irregulares: mudança completa (man → men, child → children)</li>
+                                </ul>
+                                
+                                <h4>Exemplos</h4>
+                                <table class="vocabulary-table">
+                                    <tr>
+                                        <th>Singular</th>
+                                        <th>Plural</th>
+                                    </tr>
+                                    <tr>
+                                        <td>book</td>
+                                        <td>books</td>
+                                    </tr>
+                                    <tr>
+                                        <td>bus</td>
+                                        <td>buses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>city</td>
+                                        <td>cities</td>
+                                    </tr>
+                                    <tr>
+                                        <td>boy</td>
+                                        <td>boys</td>
+                                    </tr>
+                                    <tr>
+                                        <td>knife</td>
+                                        <td>knives</td>
+                                    </tr>
+                                    <tr>
+                                        <td>man</td>
+                                        <td>men</td>
+                                    </tr>
+                                    <tr>
+                                        <td>child</td>
+                                        <td>children</td>
+                                    </tr>
+                                </table>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Escreva o plural das palavras</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. car</p>
+                                            <input type="text" class="exercise-input" data-answer="cars">
+                                            
+                                            <p>2. watch</p>
+                                            <input type="text" class="exercise-input" data-answer="watches">
+                                            
+                                            <p>3. baby</p>
+                                            <input type="text" class="exercise-input" data-answer="babies">
+                                            
+                                            <p>4. day</p>
+                                            <input type="text" class="exercise-input" data-answer="days">
+                                        </div>
+                                        <div>
+                                            <p>5. wife</p>
+                                            <input type="text" class="exercise-input" data-answer="wives">
+                                            
+                                            <p>6. tooth</p>
+                                            <input type="text" class="exercise-input" data-answer="teeth">
+                                            
+                                            <p>7. mouse</p>
+                                            <input type="text" class="exercise-input" data-answer="mice">
+                                            
+                                            <p>8. person</p>
+                                            <input type="text" class="exercise-input" data-answer="people">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
+                                <div class="lesson-navigation">
+                                    <button class="nav-btn prev-lesson" data-prev="lesson9">Lições Anterior</button>
+                                    <button class="nav-btn next-lesson" data-next="lesson11">Próxima Lição</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Lição 11 -->
+                            <div class="lesson-tab-content" id="lesson11">
+                                <h3>Lição 11: Adjetivos e Comparativos</h3>
+                                <p>Aprenda a usar adjetivos e fazer comparações em inglês.</p>
+                                
+                                <h4>Adjetivos</h4>
+                                <p>Adjetivos descrevem substantivos e vêm antes deles:</p>
+                                <ul>
+                                    <li>a big house (uma casa grande)</li>
+                                    <li>a beautiful flower (uma flor bonita)</li>
+                                    <li>an interesting book (um livro interessante)</li>
+                                </ul>
+                                
+                                <h4>Comparativos</h4>
+                                <ul>
+                                    <li>Adjetivos curtos: adicionar -ER (small → smaller)</li>
+                                    <li>Adjetivos terminados em Y: trocar Y por IER (happy → happier)</li>
+                                    <li>Adjetivos longos: usar MORE (beautiful → more beautiful)</li>
+                                    <li>Irregulares: good → better, bad → worse</li>
+                                </ul>
+                                
+                                <h4>Superlativos</h4>
+                                <ul>
+                                    <li>Adjetivos curtos: adicionar -EST (small → smallest)</li>
+                                    <li>Adjetivos terminados em Y: trocar Y por IEST (happy → happiest)</li>
+                                    <li>Adjetivos longos: usar MOST (beautiful → most beautiful)</li>
+                                    <li>Irregulares: good → best, bad → worst</li>
+                                </ul>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com a forma comparativa ou superlativa</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. My house is ______ (big) than yours.</p>
+                                            <input type="text" class="exercise-input" data-answer="bigger">
+                                            
+                                            <p>2. This is the ______ (good) movie I've ever seen.</p>
+                                            <input type="text" class="exercise-input" data-answer="best">
+                                            
+                                            <p>3. She is ______ (tall) than her brother.</p>
+                                            <input type="text" class="exercise-input" data-answer="taller">
+                                            
+                                            <p>4. This exercise is ______ (difficult) than the last one.</p>
+                                            <input type="text" class="exercise-input" data-answer="more difficult">
+                                        </div>
+                                        <div>
+                                            <p>5. He is the ______ (smart) student in the class.</p>
+                                            <input type="text" class="exercise-input" data-answer="smartest">
+                                            
+                                            <p>6. My car is ______ (old) than yours.</p>
+                                            <input type="text" class="exercise-input" data-answer="older">
+                                            
+                                            <p>7. This is the ______ (bad) day of my life.</p>
+                                            <input type="text" class="exercise-input" data-answer="worst">
+                                            
+                                            <p>8. She is ______ (beautiful) than her sister.</p>
+                                            <input type="text" class="exercise-input" data-answer="more beautiful">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
+                                <div class="lesson-navigation">
+                                    <button class="nav-btn prev-lesson" data-prev="lesson10">Lições Anterior</button>
+                                    <button class="nav-btn next-lesson" data-next="lesson12">Próxima Lição</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Lição 12 -->
+                            <div class="lesson-tab-content" id="lesson12">
+                                <h3>Lição 12: Passado Simples</h3>
+                                <p>Aprenda a usar o passado simples para falar sobre ações concluídas no passado.</p>
+                                
+                                <h4>Verbos Regulares</h4>
+                                <p>Adicionar -ED ao verbo:</p>
+                                <ul>
+                                    <li>work → worked</li>
+                                    <li>play → played</li>
+                                    <li>study → studied</li>
+                                </ul>
+                                
+                                <h4>Verbos Irregulares</h4>
+                                <p>Mudança completa:</p>
+                                <ul>
+                                    <li>go → went</li>
+                                    <li>eat → ate</li>
+                                    <li>see → saw</li>
+                                </ul>
+                                
+                                <h4>Forma Negativa</h4>
+                                <p>Usar DID NOT (DIDN'T) + verbo no infinitivo:</p>
+                                <ul>
+                                    <li>I did not work yesterday.</li>
+                                    <li>She didn't go to school.</li>
+                                </ul>
+                                
+                                <h4>Perguntas</h4>
+                                <p>Usar DID + sujeito + verbo no infinitivo:</p>
+                                <ul>
+                                    <li>Did you work yesterday?</li>
+                                    <li>Where did she go?</li>
+                                </ul>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com a forma correta do passado</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. I ______ (work) yesterday.</p>
+                                            <input type="text" class="exercise-input" data-answer="worked">
+                                            
+                                            <p>2. She ______ (go) to the movies last night.</p>
+                                            <input type="text" class="exercise-input" data-answer="went">
+                                            
+                                            <p>3. They ______ (study) for the test.</p>
+                                            <input type="text" class="exercise-input" data-answer="studied">
+                                            
+                                            <p>4. He ______ (not eat) breakfast this morning.</p>
+                                            <input type="text" class="exercise-input" data-answer="did not eat">
+                                        </div>
+                                        <div>
+                                            <p>5. We ______ (watch) TV last night.</p>
+                                            <input type="text" class="exercise-input" data-answer="watched">
+                                            
+                                            <p>6. You ______ (not come) to the party.</p>
+                                            <input type="text" class="exercise-input" data-answer="did not come">
+                                            
+                                            <p>7. ______ you ______ (see) that movie?</p>
+                                            <input type="text" class="exercise-input" data-answer="Did, see">
+                                            
+                                            <p>8. What ______ she ______ (do) yesterday?</p>
+                                            <input type="text" class="exercise-input" data-answer="did, do">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
+                                <div class="lesson-navigation">
+                                    <button class="nav-btn prev-lesson" data-prev="lesson11">Lições Anterior</button>
+                                    <button class="nav-btn next-lesson" data-next="lesson13">Próxima Lição</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Lição 13 -->
+                            <div class="lesson-tab-content" id="lesson13">
+                                <h3>Lição 13: Futuro com Will</h3>
+                                <p>Aprenda a usar WILL para falar sobre o futuro.</p>
+                                
+                                <h4>Usos do WILL</h4>
+                                <ul>
+                                    <li>Decisões tomadas no momento da fala: I'll have a coffee.</li>
+                                    <li>Previsões: It will rain tomorrow.</li>
+                                    <li>Promessas: I will call you later.</li>
+                                </ul>
+                                
+                                <h4>Estrutura</h4>
+                                <p>Sujeito + WILL + verbo no infinitivo</p>
+                                <ul>
+                                    <li>I will study tomorrow.</li>
+                                    <li>She will travel next week.</li>
+                                    <li>They will buy a new car.</li>
+                                </ul>
+                                
+                                <h4>Forma Negativa</h4>
+                                <p>WILL NOT ou WON'T</p>
+                                <ul>
+                                    <li>I will not go to the party.</li>
+                                    <li>He won't be here tomorrow.</li>
+                                </ul>
+                                
+                                <h4>Perguntas</h4>
+                                <ul>
+                                    <li>Will you come to the meeting?</li>
+                                    <li>What will you do tomorrow?</li>
+                                </ul>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com WILL ou WON'T</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. I ______ study for the test tomorrow.</p>
+                                            <input type="text" class="exercise-input" data-answer="will">
+                                            
+                                            <p>2. She ______ be here at 8 o'clock.</p>
+                                            <input type="text" class="exercise-input" data-answer="will">
+                                            
+                                            <p>3. They ______ come to the party.</p>
+                                            <input type="text" class="exercise-input" data-answer="won't">
+                                            
+                                            <p>4. We ______ travel to Europe next year.</p>
+                                            <input type="text" class="exercise-input" data-answer="will">
+                                        </div>
+                                        <div>
+                                            <p>5. He ______ finish the project on time.</p>
+                                            <input type="text" class="exercise-input" data-answer="won't">
+                                            
+                                            <p>6. ______ you help me with this?</p>
+                                            <input type="text" class="exercise-input" data-answer="Will">
+                                            
+                                            <p>7. What ______ you do after class?</p>
+                                            <input type="text" class="exercise-input" data-answer="will">
+                                            
+                                            <p>8. I ______ call you later.</p>
+                                            <input type="text" class="exercise-input" data-answer="will">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
+                                <div class="lesson-navigation">
+                                    <button class="nav-btn prev-lesson" data-prev="lesson12">Lições Anterior</button>
+                                    <button class="nav-btn next-lesson" data-next="lesson14">Próxima Lição</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Lição 14 -->
+                            <div class="lesson-tab-content" id="lesson14">
+                                <h3>Lição 14: Preposições de Tempo e Lugar</h3>
+                                <p>Aprenda a usar preposições de tempo e lugar corretamente.</p>
+                                
+                                <h4>Preposições de Tempo</h4>
+                                <ul>
+                                    <li>AT: para horas (at 3 o'clock), feriados (at Christmas)</li>
+                                    <li>ON: para dias (on Monday), datas (on July 4th)</li>
+                                    <li>IN: para meses (in July), anos (in 2023), estações (in summer)</li>
+                                </ul>
+                                
+                                <h4>Preposições de Lugar</h4>
+                                <ul>
+                                    <li>AT: para lugares específicos (at school, at home)</li>
+                                    <li>IN: para lugares fechados (in the room, in the car)</li>
+                                    <li>ON: para superfícies (on the table, on the wall)</li>
+                                </ul>
+                                
+                                <h4>Outras Preposições</h4>
+                                <ul>
+                                    <li>TO: movimento para um lugar (go to school)</li>
+                                    <li>FROM: origem (I'm from Brazil)</li>
+                                    <li>WITH: companhia (I'm with my friends)</li>
+                                    <li>BY: meio de transporte (by car, by bus)</li>
+                                </ul>
+                                
+                                <div class="exercise">
+                                    <h4>Exercício: Complete com a preposição correta</h4>
+                                    <div class="exercise-grid">
+                                        <div>
+                                            <p>1. I have class ______ Monday.</p>
+                                            <input type="text" class="exercise-input" data-answer="on">
+                                            
+                                            <p>2. She was born ______ 1990.</p>
+                                            <input type="text" class="exercise-input" data-answer="in">
+                                            
+                                            <p>3. The meeting starts ______ 9 o'clock.</p>
+                                            <input type="text" class="exercise-input" data-answer="at">
+                                            
+                                            <p>4. The book is ______ the table.</p>
+                                            <input type="text" class="exercise-input" data-answer="on">
+                                        </div>
+                                        <div>
+                                            <p>5. We usually go to the beach ______ summer.</p>
+                                            <input type="text" class="exercise-input" data-answer="in">
+                                            
+                                            <p>6. He lives ______ New York.</p>
+                                            <input type="text" class="exercise-input" data-answer="in">
+                                            
+                                            <p>7. I'm going ______ the supermarket.</p>
+                                            <input type="text" class="exercise-input" data-answer="to">
+                                            
+                                            <p>8. She arrived ______ the airport.</p>
+                                            <input type="text" class="exercise-input" data-answer="at">
+                                        </div>
+                                    </div>
+                                    <button class="submit-btn">Enviar Respostas</button>
+                                </div>
+                                
+                                <div class="lesson-navigation">
+                                    <button class="nav-btn prev-lesson" data-prev="lesson13">Lições Anterior</button>
                                     <button class="nav-btn next-lesson" style="visibility: hidden;">Próxima Lição</button>
                                 </div>
                             </div>
@@ -1870,7 +2579,7 @@
                     </div>
                     <div class="course-content">
                         <h3>Avançado 1</h3>
-                        <p>Perfeito para quem busca fluência and domínio completo do idioma.</p>
+                        <p>Perfeito para quem busca fluência e domínio completo do idioma.</p>
                         <div class="course-info">
                             <span><i class="far fa-clock"></i> <span class="course-hours" data-course="advanced1">0 horas</span></span>
                             <span><i class="fas fa-user-graduate"></i> <span class="course-students" data-course="advanced1">0 alunos</span></span>
@@ -1923,7 +2632,7 @@
                         <i class="fas fa-video"></i>
                     </div>
                     <h3 data-translate="feature-2-title">Videoaulas Integradas</h3>
-                    <p data-translate="feature-2-desc">Gravação and integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.</p>
+                    <p data-translate="feature-2-desc">Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.</p>
                 </div>
 
                 <div class="feature-card">
@@ -2136,7 +2845,7 @@
     <script>
         // Sistema de cálculo de horas baseado na dificuldade das lições
         const courseDifficulty = {
-            'basic': [1, 2, 1, 2, 3, 2, 3, 4, 3], // 9 lições com níveis de dificuldade
+            'basic': [1, 2, 1, 2, 3, 2, 3, 4, 3, 3, 4, 4, 4, 4], // 14 lições com níveis de dificuldade
             'intermediate1': [3, 3, 4, 4, 4, 5, 5, 5],
             'intermediate2': [4, 4, 4, 5, 5, 5, 5, 5],
             'intermediate3': [4, 4, 5, 5, 5, 5, 5, 5],
@@ -2224,7 +2933,7 @@
                 'course-intermediate-desc': 'Para quem já tem conhecimentos básicos e quer avançar no aprendizado.',
                 'course-intermediate-item1': 'Gramática intermediária',
                 'course-intermediate-item2': 'Conversação fluente',
-                'course-intermediate-item3': 'Leitura and interpretação de textos',
+                'course-intermediate-item3': 'Leitura e interpretação de textos',
                 'course-intermediate-item4': 'Exercícios avançados',
                 'course-advanced': 'Inglês Avançado',
                 'course-advanced-desc': 'Perfeito para quem busca fluência e domínio completo do idioma.',
@@ -2248,7 +2957,7 @@
                 'pronoun-it': 'Esta/Aquela/Etc.',
                 'pronoun-they': 'Eles/Elas',
                 'verb-to-be': 'Verbo To Be',
-                'verb-to-be-desc': 'O verbo to be é um dos verbos mais importantes em inglês and significa "ser" ou "estar".',
+                'verb-to-be-desc': 'O verbo to be é um dos verbos mais importantes em inglês e significa "ser" ou "estar".',
                 'person': 'Pessoa',
                 'conjugation': 'Conjugação',
                 '1st-person': '1ª pessoa (I)',
@@ -2266,15 +2975,15 @@
                 'question': 'Pergunta: Are you tall? (Você é alto?)',
                 'exercise-2': 'Exercício 2: Transforme as afirmações em perguntas',
                 'features-title': 'Recursos da Plataforma',
-                'features-desc': 'Descubra como nossa plataforma can transformar sua experiência de aprendizado de inglês',
+                'features-desc': 'Descubra como nossa plataforma pode transformar sua experiência de aprendizado de inglês',
                 'feature-1-title': 'Upload de Materiais',
-                'feature-1-desc': 'Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word and muito mais.',
+                'feature-1-desc': 'Professores podem fazer upload de materiais em diversos formatos: PDF, PPT, Word e muito mais.',
                 'feature-2-title': 'Videoaulas Integradas',
                 'feature-2-desc': 'Gravação e integração de videoaulas com Wondershare, disponíveis em todos os dispositivos.',
                 'feature-3-title': 'Sistema de Pagamento',
                 'feature-3-desc': 'Processamento seguro de pagamentos com emissão automática de nota fiscal.',
                 'feature-4-title': 'Design Responsivo',
-                'feature-4-desc': 'Plataforma totalmente responsiva que se adapta a computadores, tablets and smartphones.',
+                'feature-4-desc': 'Plataforma totalmente responsiva que se adapta a computadores, tablets e smartphones.',
                 'feature-5-title': 'Área do Professor',
                 'feature-5-desc': 'Painel exclusivo para professores gerenciarem cursos, materiais e acompanharem alunos.',
                 'feature-6-title': 'Integração Firebase',
